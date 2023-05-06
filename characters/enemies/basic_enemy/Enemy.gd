@@ -26,7 +26,3 @@ func get_knockback_velocity() -> Vector2:
 
 func _on_Stats_die() -> void:
     queue_free()
-
-func _on_Area2D_body_entered(body: Node) -> void:
-    if body.has_node("Stats"):
-        body.take_hit(damage, self.global_position)

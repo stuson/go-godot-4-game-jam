@@ -5,6 +5,9 @@ var direction: Vector2
 var velocity = Vector2.ZERO
 var equipped_weapon
 var knockback_velocity = Vector2.ZERO
+var invincible = false
+
+onready var invincibility_timer = $OnHitInvicibilityTimer
 
 export(PackedScene) var StartingWeapon
 
@@ -40,9 +43,23 @@ func get_knockback(delta) -> Vector2:
     return knockback_velocity
 
 func take_hit(damage, enemy_pos):
-    $Stats.take_hit(damage)
-    var knockback_direction = (global_position - enemy_pos).normalized()
-    knockback_velocity = knockback_direction * min(damage, 10) * 1000
-
+    if not invincible:
+        $Stats.take_hit(damage)
+        var knockback_direction = (global_position - enemy_pos).normalized()
+        knockback_velocity = knockback_direction * min(damage, 10) * 1000
+        invincible = true
+        invincibility_timer.start()
+        
 func _on_Stats_die() -> void:
     get_tree().quit()
+
+func _on_OnHitInvicibilityTimer_timeout() -> void:
+    invincible = false
+    var enemy_overlaps = $HurtBox.get_overlapping_areas()
+    if enemy_overlaps:
+        var enemy = enemy_overlaps[0].get_parent()
+        take_hit(enemy.damage, enemy.global_position)
+
+func _on_HurtBox_area_entered(area: Area2D) -> void:
+    var enemy = area.get_parent()
+    take_hit(enemy.damage, enemy.global_position)
