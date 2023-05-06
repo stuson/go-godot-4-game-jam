@@ -1,6 +1,11 @@
 extends KinematicBody2D
+class_name Enemy
 
-var speed = 100
+#Base enemy stats to be overridden by specific enemy types
+export var damage = 1
+export var max_hp = 5
+export var speed = 100
+
 var velocity
 var knockback_velocity = Vector2.ZERO
 var direction: Vector2
@@ -8,7 +13,9 @@ var direction: Vector2
 onready var player: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 onready var stats = $Stats
 
-export var damage = 1
+func _ready() -> void:
+	stats.max_hp = max_hp
+	stats.current_hp = max_hp
 	
 func _physics_process(delta: float) -> void:
 	direction = (player.global_position - global_position).normalized()
