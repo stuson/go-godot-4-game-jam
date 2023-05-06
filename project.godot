@@ -22,12 +22,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Wave",
 "language": "GDScript",
-"path": "res://Wave.gd"
+"path": "res://stages/Wave.gd"
 }, {
 "base": "Node",
 "class": "Weapon",
 "language": "GDScript",
-"path": "res://Weapon.gd"
+"path": "res://characters/player/weapons/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Player": "",
@@ -39,8 +39,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Go Godot 4 Game Jam"
-run/main_scene="res://Level.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://stages/Level.tscn"
+config/icon="res://assets/icon.png"
 
 [gui]
 
@@ -95,4 +95,4 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://assets/default_env.tres"
