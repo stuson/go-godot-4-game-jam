@@ -18,7 +18,7 @@ func _on_Timer_timeout() -> void:
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
-    if body.has_node("HpManager"):
+    if body.has_node("Stats"):
         body.take_hit(damage, transform.x.normalized())
     
     queue_free()
