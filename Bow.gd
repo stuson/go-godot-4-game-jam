@@ -9,8 +9,6 @@ onready var rof_timer = $Timer
 
 export(PackedScene) var Projectile
 
-func _ready() -> void:
-    print(rof_timer)
 
 func attack() -> void:
     if can_shoot:

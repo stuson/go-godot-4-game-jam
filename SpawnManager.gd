@@ -2,14 +2,21 @@ extends Node
 
 onready var waves = $Waves.get_children()
 onready var spawn_timer = $SpawnTimer
+onready var wave_delay_timer = $WaveDelayTimer
 
 var current_wave_idx = -1
 var current_wave: Wave
 var enemies_to_spawn_remaining
 var enemies_killed = 0
 
+signal new_wave_spawned
+signal enemies_to_kill_updated
+
 func _ready() -> void:
-    spawn_next_wave()
+    trigger_next_wave()
+
+func trigger_next_wave() -> void:
+    wave_delay_timer.start()
 
 func spawn_next_wave():
     enemies_killed = 0
@@ -19,6 +26,7 @@ func spawn_next_wave():
         enemies_to_spawn_remaining = current_wave.num_enemies
         spawn_timer.wait_time = current_wave.spawn_interval
         spawn_timer.start()
+        emit_signal("new_wave_spawned", current_wave_idx, current_wave.num_enemies)
 
 func _on_SpawnTimer_timeout() -> void:
     if enemies_to_spawn_remaining <= 0:
@@ -26,7 +34,8 @@ func _on_SpawnTimer_timeout() -> void:
     else:
         var enemy: Node2D = current_wave.Enemy.instance()
         enemy.global_translate(get_spawn_pos())
-        enemy.get_node("HpManager").connect("die", self, "_on_Enemy_die")
+        var hp_manager = enemy.get_node("HpManager")
+        hp_manager.connect("die", self, "_on_Enemy_die")
         get_tree().current_scene.add_child(enemy)
         enemies_to_spawn_remaining -= 1
 
@@ -48,8 +57,12 @@ func get_spawn_pos() -> Vector2:
             return Vector2(-5, -5)
     
 func _on_Enemy_die() -> void:
-    print("he deed")
     enemies_killed += 1
+    emit_signal("enemies_to_kill_updated", current_wave.num_enemies - enemies_killed)
     
     if enemies_killed >= current_wave.num_enemies:
         spawn_next_wave()
+
+
+func _on_WaveDelayTimer_timeout() -> void:
+    spawn_next_wave()

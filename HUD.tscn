@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://HudFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://HUD.gd" type="Script" id=2]
+[ext_resource path="res://HudFont_Large.tres" type="DynamicFont" id=3]
+
+[node name="HUD" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource( 2 )
+
+[node name="HpLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -47.0
+margin_right = 67.0
+margin_bottom = -15.0
+custom_fonts/font = ExtResource( 1 )
+text = "HP: 5/5"
+valign = 2
+
+[node name="WaveInfoContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -102.5
+margin_top = -100.0
+margin_right = 102.5
+margin_bottom = -15.0
+alignment = 2
+
+[node name="WaveLabel" type="Label" parent="WaveInfoContainer"]
+margin_top = 3.0
+margin_right = 205.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 3 )
+text = "Wave 1"
+align = 1
+valign = 2
+
+[node name="EnemiesRemainingLabel" type="Label" parent="WaveInfoContainer"]
+margin_top = 57.0
+margin_right = 205.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 1 )
+text = "More..."
+align = 1

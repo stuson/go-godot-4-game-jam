@@ -4,7 +4,7 @@ var speed = 100
 var velocity
 var direction: Vector2
 
-onready var player: Node2D = get_tree().get_nodes_in_group("Player")[0]
+onready var player: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 
 export var damage = 1
     
@@ -15,7 +15,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_HpManager_die() -> void:
-    print("dying")
     queue_free()
 
 func _on_Area2D_body_entered(body: Node) -> void:
