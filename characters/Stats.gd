@@ -11,12 +11,12 @@ signal hp_changed
 signal die
 
 func emit_hp_change() -> void:
-    emit_signal("hp_changed", current_hp, max_hp)
+	emit_signal("hp_changed", current_hp, max_hp)
 
 func take_hit(damage) -> void:
-    current_hp -= damage
-    emit_hp_change()
-    
-    if current_hp <= 0:
-        emit_signal("die")
-    
+	current_hp -= damage
+	emit_hp_change()
+	
+	if current_hp <= 0:
+		emit_signal("die")
+	
