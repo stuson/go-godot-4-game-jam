@@ -16,6 +16,7 @@ onready var stats = $Stats
 func _ready() -> void:
 	stats.max_hp = max_hp
 	stats.current_hp = max_hp
+	stats.connect("die", self, "_on_Stats_die")
 	
 func _physics_process(delta: float) -> void:
 	direction = (player.global_position - global_position).normalized()
@@ -24,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide(velocity)
 
 func take_hit(damage, knockback_direction):
-	knockback_velocity = knockback_direction * min(damage, 10) * 500
+	knockback_velocity = knockback_direction * min(damage, 10) * speed * 5
 	stats.take_hit(damage)
 
 func get_knockback_velocity() -> Vector2:
