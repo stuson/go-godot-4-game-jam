@@ -1,5 +1,4 @@
 extends KinematicBody2D
-class_name Player
 
 var speed = 200
 var direction: Vector2

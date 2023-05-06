@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://HudFont_Large.tres" type="DynamicFont" id=1]
-[ext_resource path="res://HudFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UpgradesMenu.gd" type="Script" id=3]
 [ext_resource path="res://MoreFood.gd" type="Script" id=4]
 
@@ -47,14 +47,14 @@ margin_bottom = 175.0
 
 [node name="UpgradeName" type="Label" parent="UpgradesContainer/MoreFood/VBoxContainer"]
 margin_right = 250.0
-margin_bottom = 50.0
+margin_bottom = 28.0
 custom_fonts/font = ExtResource( 1 )
 text = "More Food"
 
 [node name="UpgradeDescription" type="Label" parent="UpgradesContainer/MoreFood/VBoxContainer"]
-margin_top = 54.0
+margin_top = 32.0
 margin_right = 250.0
-margin_bottom = 113.0
+margin_bottom = 135.0
 custom_fonts/font = ExtResource( 2 )
 text = "Max HP + 1
 Full Heal"

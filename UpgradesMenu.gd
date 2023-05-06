@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var player: Player = get_tree().get_nodes_in_group("Player")[0]
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 signal upgrade_selected
 

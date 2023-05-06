@@ -1,6 +1,6 @@
 extends Button
 
-onready var player: Player = get_tree().get_nodes_in_group("Player")[0]
+onready var player = get_tree().get_nodes_in_group("Player")[0]
 onready var player_stats: Stats = player.get_node("Stats")
 
 signal upgrade_selected
