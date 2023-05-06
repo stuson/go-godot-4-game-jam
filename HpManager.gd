@@ -4,6 +4,8 @@ export var max_hp = 5
 
 var current_hp = max_hp
 
+onready var parent: KinematicBody2D = get_parent()
+
 signal hp_changed
 signal die
 
@@ -13,3 +15,4 @@ func take_hit(damage) -> void:
     
     if current_hp <= 0:
         emit_signal("die")
+    

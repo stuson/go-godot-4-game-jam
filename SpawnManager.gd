@@ -33,10 +33,10 @@ func _on_SpawnTimer_timeout() -> void:
         spawn_timer.stop()
     else:
         var enemy: Node2D = current_wave.Enemy.instance()
-        enemy.global_translate(get_spawn_pos())
         var hp_manager = enemy.get_node("HpManager")
         hp_manager.connect("die", self, "_on_Enemy_die")
         get_tree().current_scene.add_child(enemy)
+        enemy.global_translate(get_spawn_pos())
         enemies_to_spawn_remaining -= 1
 
 func get_spawn_pos() -> Vector2:
