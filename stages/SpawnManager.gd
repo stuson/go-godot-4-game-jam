@@ -3,6 +3,8 @@ extends Node
 onready var waves = $Waves.get_children()
 onready var spawn_timer = $SpawnTimer
 onready var wave_delay_timer = $WaveDelayTimer
+onready var camera: Camera2D = get_tree().get_nodes_in_group("MainCamera")[0]
+onready var tilemap: TileMap = get_tree().get_nodes_in_group("MainTilemap")[0]
 
 var current_wave_idx = -1
 var current_wave: Wave
@@ -57,7 +59,7 @@ func _process(delta: float) -> void:
                 var stats = enemy.get_node("Stats")
                 stats.connect("die", self, "_on_Enemy_die")
                 get_tree().current_scene.add_child(enemy)
-                enemy.global_translate(get_spawn_pos())
+                enemy.global_translate(get_spawn_pos(enemy))
                 enemies_spawned += 1
         if enemies_in_group_to_spawn <= 0 and spawn_timer.is_stopped():
             spawn_timer.wait_time = current_group.spawn_duration
@@ -68,22 +70,43 @@ func _on_SpawnTimer_timeout() -> void:
     spawn_timer.stop()
     get_next_spawn_group()
 
-func get_spawn_pos() -> Vector2:
+func get_spawn_pos(enemy: Enemy) -> Vector2:
     randomize()
     var spawn_quadrant = randi() % 4
+    
     var view = get_viewport()
+    var camera_pos = camera.global_position
+    var enemy_sprite: Sprite = enemy.get_node("Sprite")
+    var w_off = view.size.x/2
+    var h_off = view.size.y/2
+    var w = enemy_sprite.texture.get_width() * enemy_sprite.scale.x
+    var h = enemy_sprite.texture.get_height() * enemy_sprite.scale.y
+    
+    var min_x = camera_pos.x - w_off - w
+    var max_x = camera_pos.x + w_off + w
+    var min_y = camera_pos.y - h_off - h
+    var max_y = camera_pos.y + h_off + h
+    
+    var end_pos: Vector2
     
     match spawn_quadrant:
         0:
-            return Vector2(-5, rand_range(-5, view.size.y + 5))
+            end_pos = Vector2(min_x, rand_range(min_y, max_y))
         1:
-            return Vector2(view.size.x + 5, rand_range(-5, view.size.y + 5))
+            end_pos =  Vector2(max_x, rand_range(min_y, max_y))
         2:
-            return Vector2(rand_range(-5, view.size.x + 5), -5)
+            end_pos =  Vector2(rand_range(min_x, max_x), min_y)
         3:
-            return Vector2(rand_range(-5, view.size.x + 5), view.size.y + 5)
+            end_pos = Vector2(rand_range(min_x, max_x), max_y)
         _:
-            return Vector2(-5, -5)
+            end_pos = Vector2(min_x, min_y)
+    
+    var cell_coord = tilemap.world_to_map(end_pos)
+    var cell_type = tilemap.get_cellv(cell_coord)
+    if cell_type != 0:
+        return get_spawn_pos(enemy)
+    
+    return end_pos
 
 func get_next_spawn_group():
     current_group_idx += 1
