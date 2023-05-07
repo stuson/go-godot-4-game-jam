@@ -13,6 +13,7 @@ onready var player: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 onready var stats = $Stats
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var nav_timer = $NavigationRefreshTimer
+onready var sprite_material: ShaderMaterial = $Sprite.material
 
 func _ready() -> void:
     stats.max_hp = max_hp
@@ -31,6 +32,10 @@ func _physics_process(delta: float) -> void:
 func take_hit(damage, knockback_direction, knockback_multiplier):
     knockback_velocity = knockback_direction * min(damage, 10) * speed * 5 * knockback_multiplier
     stats.take_hit(damage)
+    
+    sprite_material.set_shader_param("redden", true)
+    yield(get_tree().create_timer(0.15), "timeout")
+    sprite_material.set_shader_param("redden", false)
 
 func get_knockback_velocity() -> Vector2:
     knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
