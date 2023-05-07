@@ -39,13 +39,12 @@ func _physics_process(delta: float) -> void:
     
     if rolling:
         velocity = get_roll_velocity()
+        rotate(2 * PI * delta / roll_timer.wait_time)
     else:
         velocity = direction.normalized() * speed
         velocity += get_knockback(delta)
+        look_at(get_global_mouse_position())
     move_and_slide(velocity)
-    
-    # Look
-    look_at(get_global_mouse_position())
     
     # Attack
     if Input.is_action_pressed("attack"):
