@@ -2,6 +2,18 @@ extends Node
 class_name Stats
 
 export var max_hp = 5
+export var damage_multiplier = 1
+export var crit_chance = 0
+export var crit_multiplier = 2
+export var move_speed = 200
+export var attack_speed_multiplier = 1
+export var lifesteal = 0
+export var knockback_multiplier = 1
+export var attack_size_multiplier = 1
+
+export var enemy_move_speed_multiplier = 1
+export var enemy_health_multiplier = 1
+export var enemy_count_reduction = 0
 
 var current_hp = max_hp
 
