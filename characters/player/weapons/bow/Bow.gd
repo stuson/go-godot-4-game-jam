@@ -1,26 +1,21 @@
-extends Node2D
+extends Weapon
 
 const BASE_DAMAGE = 5
+const BASE_ATTACK_INTERVAL = 1.4
 
-var can_shoot = true
 var arrow: Node2D
-
-onready var rof_timer = $RofTimer
 
 export(PackedScene) var Projectile
 
+func _ready() -> void:
+    base_damage = BASE_DAMAGE
+    base_attack_interval = BASE_ATTACK_INTERVAL
+    update_rof()
 
-func attack() -> void:
-    if can_shoot:
-        can_shoot = false
-        
-        arrow = Projectile.instance()
-        arrow.global_transform = global_transform
-        arrow.damage = BASE_DAMAGE
-        get_tree().current_scene.add_child(arrow)
-        
-        rof_timer.start()
+func make_attack() -> void:
+    arrow = Projectile.instance()
+    arrow.global_transform = global_transform
+    arrow.damage = damage
+    arrow.knockback_multiplier = player_stats.knockback_multiplier
 
-
-func _on_Timer_timeout() -> void:
-    can_shoot = true
+    get_tree().current_scene.add_child(arrow)
