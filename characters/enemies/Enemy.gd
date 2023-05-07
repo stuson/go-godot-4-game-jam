@@ -8,21 +8,25 @@ export var speed = 100
 
 var velocity
 var knockback_velocity = Vector2.ZERO
-var direction: Vector2
 
 onready var player: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 onready var stats = $Stats
+onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+onready var nav_timer = $NavigationRefreshTimer
 
 func _ready() -> void:
     stats.max_hp = max_hp
     stats.current_hp = max_hp
     stats.connect("die", self, "_on_Stats_die")
+    nav_timer.connect("timeout", self, "_on_NavigationRefreshTimer_timeout")
     
 func _physics_process(delta: float) -> void:
-    direction = (player.global_position - global_position).normalized()
-    velocity = direction * speed
-    velocity += get_knockback_velocity()
-    move_and_slide(velocity)
+    if not nav_agent.is_navigation_finished():
+        var target_pos = nav_agent.get_next_location()
+        var direction = global_transform.origin.direction_to(target_pos)
+        velocity = direction * speed
+        velocity += get_knockback_velocity()
+        move_and_slide(velocity)
 
 func take_hit(damage, knockback_direction, knockback_multiplier):
     knockback_velocity = knockback_direction * min(damage, 10) * speed * 5 * knockback_multiplier
@@ -38,3 +42,6 @@ func _on_Stats_die() -> void:
 func _on_Area2D_body_entered(body: Node) -> void:
     if body.has_node("Stats"):
         body.take_hit(damage, self.global_position)
+
+func _on_NavigationRefreshTimer_timeout() -> void:
+    nav_agent.set_target_location(player.global_position)
