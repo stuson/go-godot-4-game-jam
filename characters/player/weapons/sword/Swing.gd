@@ -14,7 +14,6 @@ func _on_LifeTimer_timeout() -> void:
     fade_out.play("Fade Out")
 
 func _on_SwingArea_body_entered(body: Node) -> void:
-    print("hit")
     if body.has_node("Stats"):
         body.take_hit(damage, (body.global_position - global_position).normalized(), knockback_multiplier)
 
