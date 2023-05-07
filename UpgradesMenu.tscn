@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://upgrades/MoreFood.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UpgradesMenu.gd" type="Script" id=3]
 [ext_resource path="res://upgrades/EvenMoreFood.tscn" type="PackedScene" id=4]
+[ext_resource path="res://upgrades/FireRateUp.tscn" type="PackedScene" id=5]
 
 [node name="UpgradesMenu" type="CanvasLayer"]
 pause_mode = 2
-visible = false
 script = ExtResource( 3 )
-possible_upgrades = [ ExtResource( 2 ), ExtResource( 4 ) ]
+possible_upgrades = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
 
 [node name="UpgradeTitle" type="Label" parent="."]
 anchor_left = 0.5
@@ -30,4 +30,5 @@ margin_left = -302.0
 margin_top = -100.0
 margin_right = 302.0
 margin_bottom = 100.0
+grow_horizontal = 2
 alignment = 1

@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://stages/Wave.gd"
 }, {
-"base": "Node2D",
+"base": "Node",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://characters/player/weapons/Weapon.gd"
