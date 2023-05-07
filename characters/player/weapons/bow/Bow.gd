@@ -1,11 +1,11 @@
 extends Node2D
 
-const BASE_DAMAGE = 1
+const BASE_DAMAGE = 5
 
 var can_shoot = true
 var arrow: Node2D
 
-onready var rof_timer = $Timer
+onready var rof_timer = $RofTimer
 
 export(PackedScene) var Projectile
 
