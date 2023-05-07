@@ -31,5 +31,12 @@ collision_mask = 2
 [node name="HitBox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+
+[node name="NavigationRefreshTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
 [connection signal="die" from="Stats" to="." method="_on_Stats_die"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
