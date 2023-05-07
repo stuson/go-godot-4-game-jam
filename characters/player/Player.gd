@@ -16,9 +16,9 @@ onready var roll_timer = $RollTimer
 export(PackedScene) var StartingWeapon
 
 func _ready() -> void:
-	equipped_weapon = StartingWeapon.instance()
-	add_child(equipped_weapon)
-	
+    equipped_weapon = StartingWeapon.instance()
+    add_child(equipped_weapon)
+    
 func _physics_process(delta: float) -> void:
     # Movement
     direction = Vector2.ZERO    
@@ -60,8 +60,8 @@ func get_roll_velocity() -> Vector2:
     return lerp(roll_velocity, Vector2.ZERO, 0.2)
 
 func get_knockback(delta) -> Vector2:
-	knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
-	return knockback_velocity
+    knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
+    return knockback_velocity
 
 func take_hit(damage, enemy_pos):
     if not invincible:

@@ -12,6 +12,8 @@ height = 0.0
 radius = 32.0
 
 [node name="TankEnemy" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource( 3 )
 damage = 2
 max_hp = 10
