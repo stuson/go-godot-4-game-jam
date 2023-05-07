@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-var speed = 200
-var roll_speed = 1000
 var direction: Vector2
 var velocity = Vector2.ZERO
 var equipped_weapon
@@ -15,6 +13,7 @@ onready var on_hit_invincibility_timer = $OnHitInvicibilityTimer
 onready var roll_timer = $RollTimer
 onready var blink_timer = $BlinkTimer
 onready var sprite_material: ShaderMaterial = $Sprite.material
+onready var stats: Stats = $Stats
 
 export(PackedScene) var StartingWeapon
 
@@ -41,7 +40,7 @@ func _physics_process(delta: float) -> void:
         velocity = get_roll_velocity()
         rotate(2 * PI * delta / roll_timer.wait_time)
     else:
-        velocity = direction.normalized() * speed
+        velocity = direction.normalized() * stats.move_speed
         velocity += get_knockback(delta)
         look_at(get_global_mouse_position())
     move_and_slide(velocity)
@@ -54,7 +53,7 @@ func start_roll():
     rolling = true
     if direction == Vector2.ZERO:
         direction = transform.x
-    roll_velocity = direction.normalized() * roll_speed
+    roll_velocity = direction.normalized() * stats.move_speed * 4
     invincible = true
     roll_timer.start()
     

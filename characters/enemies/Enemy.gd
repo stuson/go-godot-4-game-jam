@@ -24,8 +24,8 @@ func _physics_process(delta: float) -> void:
     velocity += get_knockback_velocity()
     move_and_slide(velocity)
 
-func take_hit(damage, knockback_direction):
-    knockback_velocity = knockback_direction * min(damage, 10) * speed * 5
+func take_hit(damage, knockback_direction, knockback_multiplier):
+    knockback_velocity = knockback_direction * min(damage, 10) * speed * 5 * knockback_multiplier
     stats.take_hit(damage)
 
 func get_knockback_velocity() -> Vector2:

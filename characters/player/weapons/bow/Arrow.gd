@@ -5,6 +5,7 @@ onready var life_timer = $Timer
 var projectile_speed = 500
 var velocity
 var damage
+var knockback_multiplier
 
 func _ready() -> void:
     life_timer.start()
@@ -19,6 +20,6 @@ func _on_Timer_timeout() -> void:
 
 func _on_Area2D_body_entered(body: Node) -> void:
     if body.has_node("Stats"):
-        body.take_hit(damage, transform.x.normalized())
+        body.take_hit(damage, transform.x.normalized(), knockback_multiplier)
     
     queue_free()
