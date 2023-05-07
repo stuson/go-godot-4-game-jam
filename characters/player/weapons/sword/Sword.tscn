@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://characters/player/weapons/sword/Sword.gd" type="Script" id=1]
+[ext_resource path="res://characters/player/weapons/sword/Swing.tscn" type="PackedScene" id=2]
+
+[node name="Sword" type="Node2D"]
+script = ExtResource( 1 )
+Swing = ExtResource( 2 )
+
+[node name="RofTimer" type="Timer" parent="."]
