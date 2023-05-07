@@ -70,7 +70,10 @@ func _on_SpawnTimer_timeout() -> void:
     spawn_timer.stop()
     get_next_spawn_group()
 
-func get_spawn_pos(enemy: Enemy) -> Vector2:
+func get_spawn_pos(enemy: Enemy, retry_count = 0) -> Vector2:
+    if retry_count > 10:
+        return Vector2(0, 0)
+        
     randomize()
     var spawn_quadrant = randi() % 4
     
@@ -104,7 +107,7 @@ func get_spawn_pos(enemy: Enemy) -> Vector2:
     var cell_coord = tilemap.world_to_map(end_pos)
     var cell_type = tilemap.get_cellv(cell_coord)
     if cell_type != 0:
-        return get_spawn_pos(enemy)
+        return get_spawn_pos(enemy, retry_count+1)
     
     return end_pos
 

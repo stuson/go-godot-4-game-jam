@@ -15,6 +15,8 @@ onready var blink_timer = $BlinkTimer
 onready var sprite_material: ShaderMaterial = $Sprite.material
 onready var stats: Stats = $Stats
 
+signal player_died
+
 export(PackedScene) var StartingWeapon
 
 func _ready() -> void:
@@ -90,7 +92,8 @@ func end_invincibility() -> void:
         take_hit(enemy.damage, enemy.global_position)
    
 func _on_Stats_die() -> void:
-    get_tree().quit()
+    emit_signal("player_died")
+    get_tree().paused = true
 
 func _on_OnHitInvicibilityTimer_timeout() -> void:
     end_invincibility()
