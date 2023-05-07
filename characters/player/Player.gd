@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var speed = 200
-var roll_speed = 600
+var roll_speed = 1000
 var direction: Vector2
 var velocity = Vector2.ZERO
 var equipped_weapon
