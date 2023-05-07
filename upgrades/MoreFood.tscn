@@ -31,5 +31,3 @@ margin_bottom = 135.0
 custom_fonts/font = ExtResource( 3 )
 text = "Max HP + 1
 Full Heal"
-
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

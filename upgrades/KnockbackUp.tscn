@@ -32,5 +32,3 @@ margin_bottom = 188.0
 custom_fonts/font = ExtResource( 3 )
 text = "Knockback multiplier + 0.1"
 autowrap = true
-
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

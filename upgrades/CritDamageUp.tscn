@@ -32,5 +32,3 @@ margin_bottom = 188.0
 custom_fonts/font = ExtResource( 3 )
 text = "Crit Damage Multiplier + 0.5"
 autowrap = true
-
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
