@@ -1,16 +1,22 @@
 extends Node2D
 
+onready var life_timer = $LifeTimer
+onready var fade_out = $FadeOut
+onready var swing_area = $SwingArea
+var damage
+var knockback_multiplier
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _ready() -> void:
+    life_timer.start()
+       
+func _on_LifeTimer_timeout() -> void:
+    swing_area.monitoring = false
+    fade_out.play("Fade Out")
 
+func _on_SwingArea_body_entered(body: Node) -> void:
+    print("hit")
+    if body.has_node("Stats"):
+        body.take_hit(damage, (body.global_position - global_position).normalized(), knockback_multiplier)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#    pass
+func _on_FadeOut_animation_finished(anim_name):
+    queue_free()

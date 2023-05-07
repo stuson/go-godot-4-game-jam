@@ -4,7 +4,6 @@ const BASE_DAMAGE = 5
 const BASE_ATTACK_INTERVAL = 1.4
 
 var arrow: Node2D
-
 export(PackedScene) var Projectile
 
 func _ready() -> void:
@@ -17,5 +16,6 @@ func make_attack() -> void:
     arrow.global_transform = global_transform
     arrow.damage = damage
     arrow.knockback_multiplier = player_stats.knockback_multiplier
+    arrow.scale *= player_stats.attack_size_multiplier
 
     get_tree().current_scene.add_child(arrow)
