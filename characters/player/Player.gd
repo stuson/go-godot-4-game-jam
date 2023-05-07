@@ -43,11 +43,11 @@ func _physics_process(delta: float) -> void:
         velocity = direction.normalized() * stats.move_speed
         velocity += get_knockback(delta)
         look_at(get_global_mouse_position())
+        if Input.is_action_pressed("attack"):
+            equipped_weapon.attack()
     move_and_slide(velocity)
     
     # Attack
-    if Input.is_action_pressed("attack"):
-        equipped_weapon.attack()
 
 func start_roll():
     rolling = true

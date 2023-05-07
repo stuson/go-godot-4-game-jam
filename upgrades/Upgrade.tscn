@@ -33,5 +33,3 @@ custom_fonts/font = ExtResource( 3 )
 text = "Max HP + 1
 Full Heal"
 autowrap = true
-
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
