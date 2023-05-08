@@ -104,7 +104,7 @@ func _on_RollTimer_timeout() -> void:
 
 func _on_HurtBox_area_entered(area: Area2D) -> void:
     var enemy = area.get_parent()
-    take_hit(enemy.damage, enemy.global_position)
+    take_hit(enemy.damage * enemy.stats.damage_multiplier, enemy.global_position)
 
 func _on_BlinkTimer_timeout() -> void:
     apply_blink_opacity = !apply_blink_opacity

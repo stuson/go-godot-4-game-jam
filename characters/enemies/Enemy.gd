@@ -57,7 +57,7 @@ func _on_Stats_die() -> void:
 
 func _on_Area2D_body_entered(body: Node) -> void:
     if body.has_node("Stats"):
-        body.take_hit(damage, self.global_position)
+        body.take_hit(damage * stats.damage_multiplier, self.global_position)
 
 func _on_NavigationRefreshTimer_timeout() -> void:
     nav_agent.set_target_location(player.global_position)
