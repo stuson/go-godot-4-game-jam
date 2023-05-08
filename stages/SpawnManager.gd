@@ -4,7 +4,7 @@ onready var waves = $Waves.get_children()
 onready var spawn_timer = $SpawnTimer
 onready var wave_delay_timer = $WaveDelayTimer
 onready var camera: Camera2D = get_tree().get_nodes_in_group("MainCamera")[0]
-onready var tilemap: TileMap = get_tree().get_nodes_in_group("MainTilemap")[0]
+onready var nav_poly: NavigationPolygonInstance = get_tree().get_nodes_in_group("NavMap")[0]
 
 var current_wave_idx = -1
 var current_wave: Wave
@@ -79,11 +79,12 @@ func get_spawn_pos(enemy: Enemy, retry_count = 0) -> Vector2:
     
     var view = get_viewport()
     var camera_pos = camera.global_position
-    var enemy_sprite: Sprite = enemy.get_node("Sprite")
+    var enemy_sprite: AnimatedSprite = enemy.get_node("AnimatedSprite")
     var w_off = view.size.x/2
     var h_off = view.size.y/2
-    var w = enemy_sprite.texture.get_width() * enemy_sprite.scale.x
-    var h = enemy_sprite.texture.get_height() * enemy_sprite.scale.y
+    var sprite_size = enemy_sprite.get_sprite_frames().get_frame("default", 0).get_size()
+    var w = sprite_size.x * enemy_sprite.scale.x
+    var h = sprite_size.y * enemy_sprite.scale.y
     
     var min_x = camera_pos.x - w_off - w
     var max_x = camera_pos.x + w_off + w
@@ -104,9 +105,10 @@ func get_spawn_pos(enemy: Enemy, retry_count = 0) -> Vector2:
         _:
             end_pos = Vector2(min_x, min_y)
     
-    var cell_coord = tilemap.world_to_map(end_pos)
-    var cell_type = tilemap.get_cellv(cell_coord)
-    if cell_type != 0:
+    var map = enemy.nav_agent.get_navigation_map()
+    end_pos = Navigation2DServer.map_get_closest_point(map, end_pos)
+    
+    if not (end_pos.x > max_x or end_pos.x < min_x or end_pos.y < min_y or end_pos.y > max_y):
         return get_spawn_pos(enemy, retry_count+1)
     
     return end_pos
