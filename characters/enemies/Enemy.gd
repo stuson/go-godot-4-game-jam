@@ -50,8 +50,9 @@ func take_hit(damage, knockback_direction, knockback_multiplier):
     stats.take_hit(damage)
     
     sprite_material.set_shader_param("redden", true)
-    yield(get_tree().create_timer(0.15), "timeout")
-    sprite_material.set_shader_param("redden", false)
+    if stats.current_hp > 0:
+        yield(get_tree().create_timer(0.15), "timeout")
+        sprite_material.set_shader_param("redden", false)
 
 func get_knockback_velocity() -> Vector2:
     knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
@@ -69,7 +70,8 @@ func _on_Stats_die() -> void:
     explosion.death_action = funcref(self, "death_explosion")
     explosion.global_position = global_position
     explosion.scale *= explode_scale * sqrt(scale.length())
-    get_tree().current_scene.add_child(explosion)
+
+    get_tree().current_scene.call_deferred("add_child", explosion)
 
 func _on_Area2D_body_entered(body: Node) -> void:
     if body.has_node("Stats"):
