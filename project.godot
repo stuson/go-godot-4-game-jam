@@ -69,6 +69,10 @@ window/size/test_height=864
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
+[autoload]
+
+UpgradeList="*res://upgrades/UpgradeList.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
