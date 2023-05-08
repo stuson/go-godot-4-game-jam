@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy.png-63f114c7bb3f2105c232c34f647cbc2d.stex"
+path="res://.import/dirtpath_tiles.png-c3f91edc6428abd35089422eadec93ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy.png"
-dest_files=[ "res://.import/enemy.png-63f114c7bb3f2105c232c34f647cbc2d.stex" ]
+source_file="res://assets/basic_tileset_and_assets_standard/dirtpath_tiles.png"
+dest_files=[ "res://.import/dirtpath_tiles.png-c3f91edc6428abd35089422eadec93ef.stex" ]
 
 [params]
 
