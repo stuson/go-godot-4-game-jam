@@ -1,4 +1,6 @@
-[gd_scene load_steps=112 format=2]
+
+[gd_scene load_steps=113 format=2]
+
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -13,6 +15,8 @@
 [ext_resource path="res://stages/Camera2D.gd" type="Script" id=11]
 [ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=13]
 [ext_resource path="res://stages/DeathMessage.gd" type="Script" id=14]
+[ext_resource path="res://characters/enemies/attacker_enemy/AttackerEnemy.tscn" type="PackedScene" id=15]
+[ext_resource path="res://characters/player/weapons/sword/Sword.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -923,6 +927,7 @@ navpoly = SubResource( 5 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 4 )]
 position = Vector2( 517, 363 )
+StartingWeapon = ExtResource( 16 )
 
 [node name="SpawnManager" type="Node" parent="." groups=["SpawnManager"]]
 script = ExtResource( 1 )
@@ -940,6 +945,12 @@ script = ExtResource( 10 )
 Enemy = ExtResource( 3 )
 num_enemies = 3
 spawn_interval = 0.2
+
+[node name="Spawn2" type="Node" parent="SpawnManager/Waves/Wave1/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 15 )
+num_enemies = 3
+spawn_interval = 1.0
 
 [node name="Wave2" type="Node" parent="SpawnManager/Waves"]
 script = ExtResource( 2 )
@@ -1011,6 +1022,7 @@ align = 1
 valign = 1
 
 [connection signal="player_died" from="Player" to="DeathMessage" method="_on_Player_player_died"]
+[connection signal="new_wave_spawned" from="SpawnManager" to="SpawnManager/Waves/Wave2/Group2/Spawn1" method="_on_SpawnManager_new_wave_spawned"]
 [connection signal="wave_cleared" from="SpawnManager" to="UpgradesMenu" method="_on_SpawnManager_wave_cleared"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="SpawnManager/WaveDelayTimer" to="SpawnManager" method="_on_WaveDelayTimer_timeout"]
