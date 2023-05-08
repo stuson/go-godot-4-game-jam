@@ -10,9 +10,6 @@ onready var rof_timer = $RofTimer
 onready var player = get_parent()
 onready var player_stats: Stats = player.stats
 
-func _ready() -> void:
-    rof_timer.connect("timeout", self, "_on_RofTimer_timeout")
-
 func attack() -> void:
     if can_attack:
         can_attack = false

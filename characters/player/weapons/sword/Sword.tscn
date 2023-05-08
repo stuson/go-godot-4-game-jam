@@ -8,3 +8,5 @@ script = ExtResource( 1 )
 Swing = ExtResource( 2 )
 
 [node name="RofTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RofTimer" to="." method="_on_RofTimer_timeout"]
