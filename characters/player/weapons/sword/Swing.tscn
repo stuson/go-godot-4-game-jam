@@ -30,7 +30,6 @@ collision_mask = 4
 polygon = PoolVector2Array( 0, -64, 25.5, -59.13, 45.25, -45.25, 59.13, -25.5, 64, 0, 59.13, 25.5, 45.25, 45.25, 25.5, 59.13, 0, 64, 0, 0 )
 
 [node name="SwordSwing" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 position = Vector2( 32, 0 )
 texture = ExtResource( 2 )

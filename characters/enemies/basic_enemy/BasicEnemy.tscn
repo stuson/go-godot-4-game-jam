@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://characters/Stats.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 [ext_resource path="res://characters/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=3]
+[ext_resource path="res://characters/enemies/DeathExplosion.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 23.0
@@ -15,6 +16,9 @@ radius = 16.0312
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 3 )
+explode_color = Color( 0.145098, 0.443137, 0.027451, 1 )
+explode_scale = 1.5
+death_explosion = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
