@@ -60,6 +60,10 @@ config/name="Go Godot 4 Game Jam"
 run/main_scene="res://stages/Level.tscn"
 config/icon="res://assets/icon.png"
 
+[autoload]
+
+UpgradeList="*res://upgrades/UpgradeList.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

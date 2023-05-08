@@ -1,0 +1,104 @@
+{
+  "Common": [
+    {
+      "title": "Crit Chance Up",
+      "description": "Crit Chance +10%",
+      "upgrades": [
+        {
+          "property": "crit_chance",
+          "modifier": 0.1,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Crit Damage Up",
+      "description": "Crit Damage Multiplier +0.5",
+      "upgrades": [
+        {
+          "property": "crit_multiplier",
+          "modifier": 0.5,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Damage Up",
+      "description": "Damage Multiplier +0.5",
+      "upgrades": [
+        {
+          "property": "damage_multiplier",
+          "modifier": 0.5,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Fire Rate Up",
+      "description": "Attack Speed +0.5",
+      "upgrades": [
+        {
+          "property": "attack_speed_multiplier",
+          "modifier": 0.5,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Knockback Up",
+      "description": "Knockback Multiplier +0.1",
+      "upgrades": [
+        {
+          "property": "knockback_multiplier",
+          "modifier": 0.1,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "More Food",
+      "description": "Max HP + 1\nFull Heal",
+      "upgrades": [
+        {
+          "property": "max_hp",
+          "modifier": 1,
+          "operand": "+"
+        },
+        {
+          "property": "current_hp",
+          "modifier": 10000,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Move Speed Up",
+      "description": "Move Speed +50",
+      "upgrades": [
+        {
+          "property": "move_speed",
+          "modifier": 50,
+          "operand": "+"
+        }
+      ]
+    }
+  ],
+  "Uncommon": [
+    {
+      "title": "Even More Food",
+      "description": "Max HP +2\nFull Heal",
+      "upgrades": [
+        {
+          "property": "max_hp",
+          "modifier": 2,
+          "operand": "+"
+        },
+        {
+          "property": "current_hp",
+          "modifier": 10000,
+          "operand": "+"
+        }
+      ]
+    }
+  ]
+}
