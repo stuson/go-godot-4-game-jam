@@ -192,10 +192,11 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
-height = 22.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id=45]
-radius = 9.0
+radius = 8.0
+height = 6.0
 
 [node name="TankEnemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -211,7 +212,7 @@ death_explosion = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 26 )
-frame = 5
+frame = 1
 playing = true
 centered = false
 offset = Vector2( -16, -24 )
