@@ -1025,7 +1025,7 @@ stream = ExtResource( 12 )
 autoplay = true
 
 [connection signal="player_died" from="Player" to="DeathMessage" method="_on_Player_player_died"]
-[connection signal="new_wave_spawned" from="SpawnManager" to="SpawnManager/Waves/Wave2/Group2/Spawn1" method="_on_SpawnManager_new_wave_spawned"]
 [connection signal="wave_cleared" from="SpawnManager" to="UpgradesMenu" method="_on_SpawnManager_wave_cleared"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="SpawnManager/WaveDelayTimer" to="SpawnManager" method="_on_WaveDelayTimer_timeout"]
+[connection signal="upgrade_menu_finished" from="UpgradesMenu" to="SpawnManager" method="_on_UpgradesMenu_upgrade_menu_finished"]
