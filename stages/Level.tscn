@@ -1022,3 +1022,4 @@ valign = 1
 [connection signal="wave_cleared" from="SpawnManager" to="UpgradesMenu" method="_on_SpawnManager_wave_cleared"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="SpawnManager/WaveDelayTimer" to="SpawnManager" method="_on_WaveDelayTimer_timeout"]
+[connection signal="upgrade_menu_finished" from="UpgradesMenu" to="SpawnManager" method="_on_UpgradesMenu_upgrade_menu_finished"]

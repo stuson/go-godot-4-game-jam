@@ -7,7 +7,7 @@ var upgradePanelScene = preload("res://upgrades/Upgrade.tscn")
 
 const NUM_UPGRADES = 3
 
-signal upgrade_selected
+signal upgrade_menu_finished
 
 func _on_SpawnManager_wave_cleared() -> void:
     get_tree().paused = true
@@ -31,4 +31,4 @@ func _on_Upgrade_selected() -> void:
         
     get_tree().paused = false
     visible = false
-    emit_signal("upgrade_selected")
+    emit_signal("upgrade_menu_finished")

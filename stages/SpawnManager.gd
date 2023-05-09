@@ -133,5 +133,5 @@ func _on_WaveDelayTimer_timeout() -> void:
     spawn_next_wave()
 
 
-func _on_UpgradesMenu_upgrade_selected() -> void:
+func _on_UpgradesMenu_upgrade_menu_finished() -> void:
     trigger_next_wave()
