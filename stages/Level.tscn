@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=113 format=2]
-
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -1026,4 +1024,3 @@ valign = 1
 [connection signal="wave_cleared" from="SpawnManager" to="UpgradesMenu" method="_on_SpawnManager_wave_cleared"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="SpawnManager/WaveDelayTimer" to="SpawnManager" method="_on_WaveDelayTimer_timeout"]
-[connection signal="upgrade_selected" from="UpgradesMenu" to="SpawnManager" method="_on_UpgradesMenu_upgrade_selected"]

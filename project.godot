@@ -60,6 +60,10 @@ config/name="Go Godot 4 Game Jam"
 run/main_scene="res://stages/Level.tscn"
 config/icon="res://assets/icon.png"
 
+[autoload]
+
+UpgradeList="*res://upgrades/UpgradeList.gd"
+
 [display]
 
 window/size/width=768
@@ -68,10 +72,6 @@ window/size/test_width=1536
 window/size/test_height=864
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
-
-[autoload]
-
-UpgradeList="*res://upgrades/UpgradeList.gd"
 
 [gui]
 
