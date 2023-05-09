@@ -180,7 +180,7 @@ height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=41]
 radius = 4.0
-height = 10.0
+height = 0.0
 
 [node name="BasicEnemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -193,7 +193,7 @@ death_explosion = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 25 )
-frame = 1
+frame = 9
 playing = true
 centered = false
 offset = Vector2( -8, -12 )
