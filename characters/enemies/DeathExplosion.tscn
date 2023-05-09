@@ -69,6 +69,7 @@ shader_param/color = Plane( 1, 1, 1, 1 )
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 1e-05, 1e-05 )
 collision_layer = 0
 collision_mask = 4
 
@@ -81,6 +82,7 @@ anims/Explosion = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 5 )
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
