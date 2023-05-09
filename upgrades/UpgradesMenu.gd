@@ -12,7 +12,7 @@ signal upgrade_menu_finished
 func _on_SpawnManager_wave_cleared() -> void:
     get_tree().paused = true
     var unused_upgrades = UpgradeList.upgrades["Common"].duplicate()
-    for i in range(0, NUM_UPGRADES):
+    for _i in range(0, NUM_UPGRADES):
         if unused_upgrades:
             randomize()
             var upgrade = unused_upgrades.pop_at(int(rand_range(0, unused_upgrades.size())))

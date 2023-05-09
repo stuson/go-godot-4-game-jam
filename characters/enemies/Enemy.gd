@@ -6,7 +6,7 @@ export var damage = 1
 export var max_hp = 5
 export var speed = 100
 export(Color) var explode_color
-export(float) var explode_scale = 1
+export(float) var explode_scale = 1.0
 
 var velocity: Vector2
 var knockback_velocity = Vector2.ZERO
@@ -45,9 +45,9 @@ func _physics_process(delta: float) -> void:
     if animated_sprite.animation != "default" and velocity.length() == 0:
         animated_sprite.animation = "default"
 
-func take_hit(damage, knockback_direction, knockback_multiplier):
+func take_hit(damage_taken, knockback_direction, knockback_multiplier):
     knockback_velocity = knockback_direction * min(damage, 10) * speed * 5 * knockback_multiplier
-    stats.take_hit(damage)
+    stats.take_hit(damage_taken)
     
     sprite_material.set_shader_param("redden", true)
     if stats.current_hp > 0:
@@ -67,7 +67,7 @@ func _on_Stats_die() -> void:
     
     var explosion = death_explosion.instance()
     explosion.color = explode_color
-    explosion.death_action = funcref(self, "death_explosion")
+    explosion.death_action = funcref(self, "explode")
     explosion.global_position = global_position
     explosion.scale *= explode_scale * sqrt(scale.length())
 
@@ -78,7 +78,7 @@ func _on_Stats_die() -> void:
 func _on_NavigationRefreshTimer_timeout() -> void:
     nav_agent.set_target_location(player.global_position)
 
-func death_explosion(bodies: Array) -> void:
+func explode(bodies: Array) -> void:
     for body in bodies:
         if body.has_node("Stats"):
             death_explosion_effect(body)
