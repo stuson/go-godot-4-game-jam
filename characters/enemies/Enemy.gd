@@ -7,6 +7,7 @@ export var max_hp = 5
 export var speed = 100
 export(Color) var explode_color
 export(float) var explode_scale = 1.0
+export(Array, AudioStream) var hit_sfx
 
 var velocity: Vector2
 var knockback_velocity = Vector2.ZERO
@@ -18,6 +19,7 @@ onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var nav_timer = $NavigationRefreshTimer
 onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var sprite_material: ShaderMaterial = animated_sprite.material
+onready var hit_sfx_player: AudioStreamPlayer2D = $HitSfxPlayer
 
 export(PackedScene) var death_explosion
 
@@ -46,6 +48,9 @@ func _physics_process(delta: float) -> void:
         animated_sprite.animation = "default"
 
 func take_hit(damage_taken, knockback_direction, knockback_multiplier):
+    hit_sfx_player.pitch_scale = rand_range(0.9, 1.1)
+    hit_sfx_player.stream = hit_sfx[randi() % hit_sfx.size()]
+    hit_sfx_player.play()
     knockback_velocity = knockback_direction * min(damage, 10) * speed * 5 * knockback_multiplier
     stats.take_hit(damage_taken)
     
