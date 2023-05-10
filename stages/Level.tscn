@@ -905,9 +905,9 @@ points = PoolVector2Array( 0, 8, 8, 8, 8, 24, 0, 24 )
 0/z_index = 0
 
 [sub_resource type="NavigationPolygon" id=5]
-vertices = PoolVector2Array( 1538, -270, 1543, 810, 1462, 544, 1459, 330, 1225, 540, -388, 800, 130, 634, -384, -271, 1224, 332, -151, 575, -32, 574, -33, 602, 210, 523, 209, 601, 120, 457, 33, 603, 32, 633, 17, 458, 17, 395, 131, 600, 119, 520, -149, 396 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 2, 1, 5, 6 ), PoolIntArray( 7, 0, 3, 8 ), PoolIntArray( 9, 10, 11, 5 ), PoolIntArray( 12, 8, 4, 13 ), PoolIntArray( 7, 8, 12, 14 ), PoolIntArray( 11, 15, 16, 5 ), PoolIntArray( 14, 17, 18 ), PoolIntArray( 6, 19, 13 ), PoolIntArray( 12, 20, 14 ), PoolIntArray( 7, 14, 18 ), PoolIntArray( 7, 18, 21 ), PoolIntArray( 5, 7, 21, 9 ), PoolIntArray( 5, 16, 6 ), PoolIntArray( 4, 6, 13 ) ]
-outlines = [ PoolVector2Array( -384, -271, 1538, -270, 1543, 810, -388, 800 ), PoolVector2Array( -149, 396, 17, 395, 17, 458, 120, 457, 119, 520, 210, 523, 209, 601, 131, 600, 130, 634, 32, 633, 33, 603, -33, 602, -32, 574, -151, 575 ), PoolVector2Array( 1224, 332, 1459, 330, 1462, 544, 1225, 540 ) ]
+vertices = PoolVector2Array( 196, 539, 1238, 517, 1447, 518, 195, 583, 1448, 346, 1538, -270, 1543, 810, -388, 800, 103, 612, -384, -271, 1241, 347, 102, 538, 104, 474, -136, 550, -6, 551, -6, 583, 8, 473, 8, 411, 58, 584, 58, 613, 104, 583, -134, 411 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 2 ), PoolIntArray( 3, 2, 6, 7, 8 ), PoolIntArray( 9, 5, 4, 10 ), PoolIntArray( 0, 11, 12 ), PoolIntArray( 13, 14, 15 ), PoolIntArray( 12, 16, 17 ), PoolIntArray( 15, 18, 19 ), PoolIntArray( 8, 20, 3 ), PoolIntArray( 9, 10, 1, 0, 12 ), PoolIntArray( 9, 12, 17 ), PoolIntArray( 9, 17, 21 ), PoolIntArray( 7, 9, 21, 13 ), PoolIntArray( 19, 8, 7 ), PoolIntArray( 19, 7, 13, 15 ) ]
+outlines = [ PoolVector2Array( -384, -271, 1538, -270, 1543, 810, -388, 800 ), PoolVector2Array( -134, 411, 8, 411, 8, 473, 104, 474, 102, 538, 196, 539, 195, 583, 104, 583, 103, 612, 58, 613, 58, 584, -6, 583, -6, 551, -136, 550 ), PoolVector2Array( 1241, 347, 1448, 346, 1447, 518, 1238, 517 ) ]
 
 [node name="Level" type="Node2D"]
 

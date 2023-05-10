@@ -233,7 +233,7 @@ death_explosion = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 26 )
-frame = 6
+frame = 22
 playing = true
 centered = false
 offset = Vector2( -16, -24 )
@@ -253,8 +253,6 @@ rotation = 1.5708
 shape = SubResource( 45 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
-radius = 60.0
 
 [node name="NavigationRefreshTimer" type="Timer" parent="."]
 wait_time = 0.2
