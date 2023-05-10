@@ -1023,6 +1023,7 @@ valign = 1
 pause_mode = 2
 stream = ExtResource( 12 )
 autoplay = true
+bus = "BGM"
 
 [connection signal="player_died" from="Player" to="DeathMessage" method="_on_Player_player_died"]
 [connection signal="wave_cleared" from="SpawnManager" to="UpgradesMenu" method="_on_SpawnManager_wave_cleared"]
