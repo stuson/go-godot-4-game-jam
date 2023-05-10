@@ -11,7 +11,6 @@ var apply_blink_opacity = false
 var is_looking_right = true
 
 onready var on_hit_invincibility_timer = $OnHitInvicibilityTimer
-onready var roll_timer = $RollTimer
 onready var blink_timer = $BlinkTimer
 onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var sprite_material: ShaderMaterial = $AnimatedSprite.material

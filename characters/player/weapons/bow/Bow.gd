@@ -14,9 +14,9 @@ func _ready() -> void:
 func make_attack(direction: Vector2) -> void:
     arrow = Projectile.instance()
     arrow.global_transform = global_transform
-    arrow.look_at(direction)
     arrow.damage = damage
     arrow.knockback_multiplier = player_stats.knockback_multiplier
     arrow.scale *= player_stats.attack_size_multiplier
 
     get_tree().current_scene.add_child(arrow)
+    arrow.look_at(direction)
