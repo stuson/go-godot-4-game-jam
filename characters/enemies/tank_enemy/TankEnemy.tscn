@@ -233,7 +233,7 @@ death_explosion = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 26 )
-frame = 22
+frame = 1
 playing = true
 centered = false
 offset = Vector2( -16, -24 )
@@ -255,7 +255,7 @@ shape = SubResource( 45 )
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="NavigationRefreshTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 autostart = true
 
 [node name="HitSfxPlayer" type="AudioStreamPlayer2D" parent="."]
