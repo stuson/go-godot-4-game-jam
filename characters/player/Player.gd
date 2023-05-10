@@ -8,11 +8,13 @@ var invincible = false
 var rolling = false
 var roll_velocity = Vector2.ZERO
 var apply_blink_opacity = false
+var is_looking_right = true
 
 onready var on_hit_invincibility_timer = $OnHitInvicibilityTimer
 onready var roll_timer = $RollTimer
 onready var blink_timer = $BlinkTimer
-onready var sprite_material: ShaderMaterial = $Sprite.material
+onready var animated_sprite: AnimatedSprite = $AnimatedSprite
+onready var sprite_material: ShaderMaterial = $AnimatedSprite.material
 onready var stats: Stats = $Stats
 
 signal player_died
@@ -24,7 +26,7 @@ func _ready() -> void:
     add_child(equipped_weapon)
     
 func _physics_process(delta: float) -> void:
-    # Movement
+    # Move
     direction = Vector2.ZERO    
     if Input.is_action_pressed("move_right"):
         direction.x += 1
@@ -35,30 +37,41 @@ func _physics_process(delta: float) -> void:
     if Input.is_action_pressed("move_down"):
         direction.y += 1
     
+    # Roll
     if not rolling and Input.is_action_just_pressed("roll"):
         start_roll()
     
     if rolling:
-        velocity = get_roll_velocity()
-        rotate(2 * PI * delta / roll_timer.wait_time)
+        velocity = roll_velocity
     else:
         velocity = direction.normalized() * stats.move_speed
         velocity += get_knockback(delta)
-        look_at(get_global_mouse_position())
+        
+        # Look
+        var vp = get_viewport()
+        var mouse_pos = vp.get_mouse_position()
+        if mouse_pos.x >= vp.size.x / 2:
+            is_looking_right = true
+        else:
+            is_looking_right = false
+            
+        var animation_name = "walk" if direction else "default"
+        animation_name += "_r" if is_looking_right else "_l"
+        if animated_sprite.animation != animation_name:
+            animated_sprite.animation = animation_name
+                    
+        # Attack
         if Input.is_action_pressed("attack"):
-            equipped_weapon.attack()
+            equipped_weapon.attack(get_global_mouse_position())
     move_and_slide(velocity)
 
 func start_roll():
     rolling = true
     if direction == Vector2.ZERO:
-        direction = transform.x
-    roll_velocity = direction.normalized() * stats.move_speed * 4
+        direction = get_global_mouse_position() - global_position
+    animated_sprite.animation = "roll_r" if direction.x >= 0 else "roll_l"
+    roll_velocity = direction.normalized() * stats.move_speed * 2
     invincible = true
-    roll_timer.start()
-    
-func get_roll_velocity() -> Vector2:
-    return lerp(roll_velocity, Vector2.ZERO, 0.2)
 
 func get_knockback(delta) -> Vector2:
     knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
@@ -82,6 +95,9 @@ func start_invincibility() -> void:
     blink_timer.start()
 
 func end_invincibility() -> void:
+    if rolling:
+        return
+        
     blink_timer.stop()
     apply_blink_opacity = false
     sprite_material.set_shader_param("apply_blink_opacity", apply_blink_opacity)
@@ -98,10 +114,6 @@ func _on_Stats_die() -> void:
 func _on_OnHitInvicibilityTimer_timeout() -> void:
     end_invincibility()
 
-func _on_RollTimer_timeout() -> void:
-    rolling = false
-    end_invincibility()
-
 func _on_HurtBox_area_entered(area: Area2D) -> void:
     var enemy = area.get_parent()
     take_hit(enemy.damage * enemy.stats.damage_multiplier, enemy.global_position)
@@ -109,3 +121,9 @@ func _on_HurtBox_area_entered(area: Area2D) -> void:
 func _on_BlinkTimer_timeout() -> void:
     apply_blink_opacity = !apply_blink_opacity
     sprite_material.set_shader_param("apply_blink_opacity", apply_blink_opacity)
+
+
+func _on_AnimatedSprite_animation_finished() -> void:
+    if animated_sprite.animation in ["roll_l", "roll_r"]:
+        rolling = false
+        end_invincibility()

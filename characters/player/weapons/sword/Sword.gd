@@ -12,9 +12,10 @@ func _ready() -> void:
     base_attack_interval = BASE_ATTACK_INTERVAL
     update_rof()
 
-func make_attack() -> void:
+func make_attack(direction: Vector2) -> void:
     swing = Swing.instance()
     swing.global_transform = global_transform
+    swing.look_at(direction)
     swing.damage = damage
     swing.knockback_multiplier = player_stats.knockback_multiplier
     swing.scale *= BASE_SCALING * player_stats.attack_size_multiplier
