@@ -233,7 +233,7 @@ death_explosion = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 26 )
-frame = 1
+frame = 14
 playing = true
 centered = false
 offset = Vector2( -16, -24 )
