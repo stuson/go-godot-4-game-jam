@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://characters/Stats.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/BasicEnemy/walking.png" type="Texture" id=2]
@@ -203,6 +203,36 @@ height = 10.0
 radius = 4.0
 height = 0.0
 
+[sub_resource type="Animation" id=42]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/buff_mix")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "explosion_effect"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/buff_mix")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
 [node name="BasicEnemy" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 5
@@ -216,7 +246,7 @@ death_explosion = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 25 )
-frame = 4
+frame = 21
 playing = true
 centered = false
 offset = Vector2( -8, -12 )
@@ -242,3 +272,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="HitSfxPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 42 )
+anims/explosion_effect = SubResource( 43 )

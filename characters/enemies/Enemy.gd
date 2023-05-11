@@ -21,6 +21,7 @@ onready var nav_timer = $NavigationRefreshTimer
 onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var sprite_material: ShaderMaterial = animated_sprite.material
 onready var hit_sfx_player: AudioStreamPlayer2D = $HitSfxPlayer
+onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 export(PackedScene) var death_explosion
 
@@ -72,6 +73,10 @@ func get_knockback_velocity() -> Vector2:
     knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
     return knockback_velocity
 
+func play_explosion_effect_animation(color: Color) -> void:
+    sprite_material.set_shader_param("buff_color", color)
+    animation_player.play("explosion_effect")
+
 func _on_Stats_die() -> void:
     set_collision_layer_bit(3, false)
     dying = true
@@ -86,8 +91,6 @@ func _on_Stats_die() -> void:
     explosion.scale *= explode_scale * sqrt(scale.length())
 
     get_tree().current_scene.call_deferred("add_child", explosion)
-
-
 
 func _on_NavigationRefreshTimer_timeout() -> void:
     nav_agent.set_target_location(player.global_position)
