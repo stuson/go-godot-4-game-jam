@@ -19,15 +19,16 @@ func attack(direction: Vector2) -> void:
         randomize()
         if rand_range(0, 1) < player_stats.crit_chance:
             damage *= player_stats.crit_multiplier
-            
-        make_attack(direction)
+            make_attack(direction, true)
+        else:
+            make_attack(direction, false)
         
         rof_timer.start()
         
 func update_rof() -> void:
     rof_timer.wait_time = base_attack_interval / player_stats.attack_speed_multiplier
         
-func make_attack(direction: Vector2) -> void:
+func make_attack(direction: Vector2, is_crit: bool) -> void:
     pass
 
 func _on_RofTimer_timeout() -> void:
