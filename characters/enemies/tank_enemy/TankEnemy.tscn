@@ -256,7 +256,6 @@ hit_sfx = [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 26 )
-frame = 12
 playing = true
 centered = false
 offset = Vector2( -16, -24 )

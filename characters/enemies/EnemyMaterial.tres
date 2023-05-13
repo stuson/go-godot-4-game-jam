@@ -26,4 +26,4 @@ resource_local_to_scene = true
 shader = SubResource( 3 )
 shader_param/redden = false
 shader_param/buff_color = Vector3( 0, 0, 0 )
-shader_param/buff_mix = 1.0
+shader_param/buff_mix = 0.0
