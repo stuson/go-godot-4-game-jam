@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var life_timer = $LifeTimer
 onready var fade_out = $FadeOut
 onready var swing_area = $SwingArea
 onready var sfx_player = $SfxPlayer

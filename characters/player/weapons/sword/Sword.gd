@@ -16,9 +16,10 @@ func make_attack(direction: Vector2, is_crit: bool) -> void:
     swing = Swing.instance()
     swing.damage = damage
     swing.knockback_multiplier = player_stats.knockback_multiplier
-    swing.scale *= BASE_SCALING * player_stats.attack_size_multiplier
     swing.is_crit = is_crit
     
     get_tree().current_scene.add_child(swing)
+    
     swing.global_transform = global_transform
+    swing.scale *= BASE_SCALING * player_stats.attack_size_multiplier
     swing.look_at(direction)
