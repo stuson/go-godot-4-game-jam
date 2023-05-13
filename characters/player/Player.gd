@@ -10,6 +10,8 @@ var can_roll = true
 var roll_velocity = Vector2.ZERO
 var apply_blink_opacity = false
 var is_looking_right = true
+var weapons = []
+var weapon_idx = 0
 
 onready var on_hit_invincibility_timer = $OnHitInvicibilityTimer
 onready var blink_timer = $BlinkTimer
@@ -19,12 +21,16 @@ onready var sprite_material: ShaderMaterial = $AnimatedSprite.material
 onready var stats: Stats = $Stats
 
 signal player_died
+signal weapon_cycled
 
-export(PackedScene) var StartingWeapon
+export(Array, PackedScene) var StartingWeapons
 
 func _ready() -> void:
-    equipped_weapon = StartingWeapon.instance()
-    add_child(equipped_weapon)
+    for StartingWeapon in StartingWeapons:
+        var weapon = StartingWeapon.instance()
+        weapons.append(weapon)
+        add_child(weapon)
+    equipped_weapon = weapons[0]
     
 func _physics_process(delta: float) -> void:
     # Move
@@ -41,6 +47,9 @@ func _physics_process(delta: float) -> void:
     # Roll
     if can_roll and not rolling and Input.is_action_just_pressed("roll"):
         start_roll()
+        
+    if Input.is_action_just_pressed("cycle_weapon"):
+        cycle_weapon()
     
     if rolling:
         velocity = roll_velocity
@@ -65,6 +74,11 @@ func _physics_process(delta: float) -> void:
         if Input.is_action_pressed("attack"):
             equipped_weapon.attack(get_global_mouse_position())
     move_and_slide(velocity)
+
+func cycle_weapon() -> void:
+    weapon_idx = (weapon_idx + 1) % weapons.size()
+    equipped_weapon = weapons[weapon_idx]
+    emit_signal("weapon_cycled", weapon_idx)
 
 func start_roll():
     can_roll = false
