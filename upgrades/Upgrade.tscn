@@ -53,9 +53,17 @@ autowrap = true
 [node name="UpgradeDescription" type="Label" parent="VBoxContainer"]
 margin_top = 29.0
 margin_right = 250.0
-margin_bottom = 150.0
+margin_bottom = 107.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "Max HP + 1
 Full Heal"
 autowrap = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 111.0
+margin_right = 250.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 10 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
