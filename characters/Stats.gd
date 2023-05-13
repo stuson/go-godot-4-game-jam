@@ -10,6 +10,8 @@ export var attack_speed_multiplier = 1 setget set_attack_speed
 export var life_on_kill = 0
 export var knockback_multiplier = 1
 export var attack_size_multiplier = 1
+export var chain = 0
+export var swing_travel = 50
 
 export var enemy_move_speed_multiplier = 1
 export var enemy_health_multiplier = 1

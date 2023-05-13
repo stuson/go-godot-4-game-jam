@@ -16,6 +16,7 @@ func make_attack(direction: Vector2, is_crit: bool) -> void:
     swing = Swing.instance()
     swing.damage = damage
     swing.knockback_multiplier = player_stats.knockback_multiplier
+    swing.swing_travel = player_stats.swing_travel
     swing.is_crit = is_crit
     
     get_tree().current_scene.add_child(swing)

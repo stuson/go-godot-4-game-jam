@@ -9,6 +9,7 @@ export(Array, AudioStream) var swoosh_sfx
 
 var damage
 var knockback_multiplier
+var swing_travel
 var is_crit
 var hit_objects = []
 
@@ -17,6 +18,9 @@ func _ready() -> void:
     sfx_player.stream = swoosh_sfx[randi() % swoosh_sfx.size()]
     sfx_player.play()
     fade_out.play("Fade Out")
+
+func _physics_process(delta: float) -> void:
+    position = position + swing_travel * delta * transform.x
 
 func _on_SwingArea_body_entered(body: Node) -> void:
     if body.has_node("Stats"):

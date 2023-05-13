@@ -232,7 +232,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[node name="AttackerEnemy" type="KinematicBody2D"]
+[node name="AttackerEnemy" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 2 )
