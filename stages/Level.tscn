@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=13]
 [ext_resource path="res://stages/DeathMessage.gd" type="Script" id=14]
 [ext_resource path="res://ui/hud/PauseMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://characters/enemies/duplicator_enemy/DuplicatorEnemy.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -953,9 +954,9 @@ spawn_interval = 0.2
 
 [node name="Spawn2" type="Node" parent="SpawnManager/Waves/Wave1/Group1"]
 script = ExtResource( 10 )
-Enemy = ExtResource( 3 )
-num_enemies = 3
-spawn_interval = 1.0
+Enemy = ExtResource( 16 )
+num_enemies = 6
+spawn_interval = 0.2
 
 [node name="Wave2" type="Node" parent="SpawnManager/Waves"]
 script = ExtResource( 2 )

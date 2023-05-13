@@ -12,6 +12,7 @@ export(Array, AudioStream) var hit_sfx
 var velocity: Vector2
 var knockback_velocity = Vector2.ZERO
 var dying = false
+var duplicatable = true
 
 onready var player: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 onready var stats = $Stats
@@ -24,6 +25,8 @@ onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var hitbox: Area2D = $Area2D
 
 export(PackedScene) var death_explosion
+
+signal duplicated
 
 func _ready() -> void:
     stats.initialize_hp(max_hp, max_hp)
@@ -38,7 +41,7 @@ func _physics_process(delta: float) -> void:
     if not nav_agent.is_navigation_finished():
         var target_pos = nav_agent.get_next_location()
         var direction = global_transform.origin.direction_to(target_pos)
-        velocity = direction * stats.move_speed
+        velocity = (direction * stats.move_speed).limit_length(1000)
         velocity += get_knockback_velocity()
         move_and_slide(velocity)
     
@@ -98,3 +101,10 @@ func explode(bodies: Array) -> void:
     
 func death_explosion_effect(body) -> void:
     pass #Implement per enemy
+
+func clone() -> Enemy:
+    var dupe = load(filename).instance()
+    var dupe_stats = dupe.get_node("Stats") 
+    dupe_stats.update(stats)
+    emit_signal("duplicated", dupe)
+    return dupe

@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
                 var enemy: Node2D = spawn.Enemy.instance()
                 var stats = enemy.get_node("Stats")
                 stats.connect("die", self, "_on_Enemy_die")
+                enemy.connect("duplicated", self, "_on_Enemy_duplicated")
                 get_tree().current_scene.add_child(enemy)
                 enemy.global_translate(get_spawn_pos(enemy))
                 enemies_spawned += 1
@@ -127,6 +128,14 @@ func _on_Enemy_die() -> void:
         spawn_timer.wait_time = min(spawn_timer.time_left, 1)
     if enemies_killed >= enemies_in_wave:
         emit_signal("wave_cleared")
+
+func _on_Enemy_duplicated(dupe) -> void:
+    var dupe_stats = dupe.get_node("Stats")
+    dupe_stats.connect("die", self, "_on_Enemy_die")
+    dupe.connect("duplicated", self, "_on_Enemy_duplicated")
+    enemies_in_wave += 1
+    enemies_spawned += 1
+    emit_signal("enemies_to_kill_updated", enemies_in_wave - enemies_killed)
 
 
 func _on_WaveDelayTimer_timeout() -> void:

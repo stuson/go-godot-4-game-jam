@@ -1,0 +1,280 @@
+[gd_scene load_steps=70 format=2]
+
+[ext_resource path="res://characters/Stats.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/enemies/duplicator_enemy/DuplicatorEnemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/DuplicatorEnemy/die.png" type="Texture" id=3]
+[ext_resource path="res://characters/enemies/DeathExplosion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/enemies/EnemyMaterial.tres" type="Material" id=5]
+[ext_resource path="res://assets/DuplicatorEnemy/walking.png" type="Texture" id=6]
+[ext_resource path="res://assets/DuplicatorEnemy/idle.png" type="Texture" id=7]
+[ext_resource path="res://assets/sound/enemy/punch flesh 14.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sound/enemy/punch flesh 16.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sound/enemy/punch flesh 4.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sound/enemy/punch flesh 10.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sound/enemy/punch flesh 13.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sound/enemy/punch flesh 15.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/sound/enemy/punch flesh 7.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/sound/enemy/punch flesh 19.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/sound/enemy/punch flesh 9.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/sound/enemy/punch flesh 1.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/sound/enemy/punch flesh 18.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/sound/enemy/punch flesh 2.wav" type="AudioStream" id=20]
+[ext_resource path="res://assets/sound/enemy/punch flesh 17.wav" type="AudioStream" id=21]
+[ext_resource path="res://assets/sound/enemy/punch flesh 6.wav" type="AudioStream" id=22]
+[ext_resource path="res://assets/sound/enemy/punch flesh 3.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/sound/enemy/punch flesh 5.wav" type="AudioStream" id=24]
+[ext_resource path="res://assets/sound/enemy/punch flesh 12.wav" type="AudioStream" id=25]
+[ext_resource path="res://assets/sound/enemy/punch flesh 8.wav" type="AudioStream" id=26]
+[ext_resource path="res://assets/sound/enemy/punch flesh 20.wav" type="AudioStream" id=27]
+[ext_resource path="res://assets/sound/enemy/punch flesh 11.wav" type="AudioStream" id=28]
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 7 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 7 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 7 )
+region = Rect2( 128, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 7 )
+region = Rect2( 144, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 7 )
+region = Rect2( 160, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 7 )
+region = Rect2( 176, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 7 )
+region = Rect2( 208, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 7 )
+region = Rect2( 224, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 7 )
+region = Rect2( 240, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 7 )
+region = Rect2( 256, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 7 )
+region = Rect2( 272, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 7 )
+region = Rect2( 288, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 7 )
+region = Rect2( 304, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 7 )
+region = Rect2( 320, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 7 )
+region = Rect2( 336, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=70]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=73]
+atlas = ExtResource( 3 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=75]
+atlas = ExtResource( 3 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=80]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=81]
+atlas = ExtResource( 6 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=82]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=41]
+animations = [ {
+"frames": [ SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ) ],
+"loop": true,
+"name": "default",
+"speed": 16.0
+}, {
+"frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ) ],
+"loop": true,
+"name": "die",
+"speed": 16.0
+}, {
+"frames": [ SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ) ],
+"loop": true,
+"name": "walk",
+"speed": 16.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=42]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id=43]
+radius = 4.0
+height = 0.0
+
+[sub_resource type="Animation" id=44]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/buff_mix")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "explosion_effect"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/buff_mix")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[node name="DuplicatorEnemy" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 2 )
+damage = 10
+max_hp = 25
+speed = 80
+explode_color = Color( 0.886275, 0.00784314, 0.811765, 1 )
+explode_scale = 3.0
+hit_sfx = [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 11 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 26 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 27 ) ]
+death_explosion = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = ExtResource( 5 )
+frames = SubResource( 41 )
+frame = 9
+playing = true
+centered = false
+offset = Vector2( -8, -12 )
+
+[node name="HurtBox" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 42 )
+
+[node name="Stats" parent="." instance=ExtResource( 1 )]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource( 43 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="NavigationRefreshTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="HitSfxPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = "SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 44 )
+anims/explosion_effect = SubResource( 45 )

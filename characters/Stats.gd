@@ -63,4 +63,22 @@ func set_current_hp(new_current_hp, is_crit=false):
 
 func set_attack_speed(new_attack_speed):
     attack_speed_multiplier = new_attack_speed
-    parent.equipped_weapon.update_rof()
+    if parent:
+        parent.equipped_weapon.update_rof()
+
+func update(other_stats: Stats) -> void:
+    max_hp = other_stats.max_hp
+    damage_multiplier = other_stats.damage_multiplier
+    crit_chance = other_stats.crit_chance
+    crit_multiplier = other_stats.crit_multiplier
+    move_speed = other_stats.move_speed
+    attack_speed_multiplier = other_stats. attack_speed_multiplier
+    life_on_kill = other_stats.life_on_kill
+    knockback_multiplier = other_stats.knockback_multiplier
+    attack_size_multiplier = other_stats.attack_size_multiplier
+
+    enemy_move_speed_multiplier = other_stats.enemy_move_speed_multiplier
+    enemy_health_multiplier = other_stats.enemy_health_multiplier
+    enemy_count_reduction = other_stats.enemy_count_reduction
+
+    current_hp = max_hp
