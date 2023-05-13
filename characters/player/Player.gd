@@ -6,12 +6,14 @@ var equipped_weapon
 var knockback_velocity = Vector2.ZERO
 var invincible = false
 var rolling = false
+var can_roll = true
 var roll_velocity = Vector2.ZERO
 var apply_blink_opacity = false
 var is_looking_right = true
 
 onready var on_hit_invincibility_timer = $OnHitInvicibilityTimer
 onready var blink_timer = $BlinkTimer
+onready var roll_timer = $RollCooldown
 onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var sprite_material: ShaderMaterial = $AnimatedSprite.material
 onready var stats: Stats = $Stats
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
         direction.y += 1
     
     # Roll
-    if not rolling and Input.is_action_just_pressed("roll"):
+    if can_roll and not rolling and Input.is_action_just_pressed("roll"):
         start_roll()
     
     if rolling:
@@ -65,11 +67,12 @@ func _physics_process(delta: float) -> void:
     move_and_slide(velocity)
 
 func start_roll():
+    can_roll = false
     rolling = true
     if direction == Vector2.ZERO:
         direction = get_global_mouse_position() - global_position
     animated_sprite.animation = "roll_r" if direction.x >= 0 else "roll_l"
-    roll_velocity = direction.normalized() * stats.move_speed * 2
+    roll_velocity = direction.normalized() * stats.move_speed * 1.7
     invincible = true
 
 func get_knockback(delta) -> Vector2:
@@ -126,3 +129,7 @@ func _on_AnimatedSprite_animation_finished() -> void:
     if animated_sprite.animation in ["roll_l", "roll_r"]:
         rolling = false
         end_invincibility()
+        roll_timer.start()
+
+func _on_RollCooldown_timeout() -> void:
+    can_roll = true
