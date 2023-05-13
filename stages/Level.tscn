@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=117 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -957,8 +957,8 @@ spawn_interval = 0.2
 [node name="Spawn2" type="Node" parent="SpawnManager/Waves/Wave1/Group1"]
 script = ExtResource( 10 )
 Enemy = ExtResource( 18 )
-num_enemies = 6
-spawn_interval = 0.2
+num_enemies = 3
+spawn_interval = 1.0
 
 [node name="Wave2" type="Node" parent="SpawnManager/Waves"]
 script = ExtResource( 2 )
