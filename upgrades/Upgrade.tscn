@@ -1,15 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://upgrades/Upgrade.gd" type="Script" id=1]
-[ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/PassionOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://upgrades/box_style_pressed.tres" type="StyleBox" id=3]
+[ext_resource path="res://upgrades/box_style.tres" type="StyleBox" id=4]
+[ext_resource path="res://upgrades/box_style_hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://upgrades/box_style_disabled.tres" type="StyleBox" id=6]
+[ext_resource path="res://upgrades/box_style_focus.tres" type="StyleBox" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [node name="Upgrade" type="Button"]
 margin_left = 152.0
 margin_right = 452.0
 margin_bottom = 200.0
-rect_min_size = Vector2( 300, 200 )
-align = 0
+rect_min_size = Vector2( 150, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 4 )
 script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -17,19 +39,23 @@ margin_left = 25.0
 margin_top = 25.0
 margin_right = 275.0
 margin_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="UpgradeName" type="Label" parent="VBoxContainer"]
 margin_right = 250.0
-margin_bottom = 28.0
-custom_fonts/font = ExtResource( 2 )
+margin_bottom = 25.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 text = "More Food"
 autowrap = true
 
 [node name="UpgradeDescription" type="Label" parent="VBoxContainer"]
-margin_top = 32.0
+margin_top = 29.0
 margin_right = 250.0
-margin_bottom = 135.0
-custom_fonts/font = ExtResource( 3 )
+margin_bottom = 150.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
 text = "Max HP + 1
 Full Heal"
 autowrap = true

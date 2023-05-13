@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
         for spawn in spawns:
             var spawn_count = spawn.get_spawn_count(delta)
             enemies_in_group_to_spawn += spawn.remaining_enemies
-            for idx in range(0, spawn_count):
+            for _idx in range(0, spawn_count):
                 var enemy: Node2D = spawn.Enemy.instance()
                 var stats = enemy.get_node("Stats")
                 stats.connect("die", self, "_on_Enemy_die")
@@ -133,5 +133,5 @@ func _on_WaveDelayTimer_timeout() -> void:
     spawn_next_wave()
 
 
-func _on_UpgradesMenu_upgrade_selected() -> void:
+func _on_UpgradesMenu_upgrade_menu_finished() -> void:
     trigger_next_wave()

@@ -7,12 +7,12 @@ var upgradePanelScene = preload("res://upgrades/Upgrade.tscn")
 
 const NUM_UPGRADES = 3
 
-signal upgrade_selected
+signal upgrade_menu_finished
 
 func _on_SpawnManager_wave_cleared() -> void:
     get_tree().paused = true
     var unused_upgrades = UpgradeList.upgrades["Common"].duplicate()
-    for i in range(0, NUM_UPGRADES):
+    for _i in range(0, NUM_UPGRADES):
         if unused_upgrades:
             randomize()
             var upgrade = unused_upgrades.pop_at(int(rand_range(0, unused_upgrades.size())))
@@ -31,4 +31,4 @@ func _on_Upgrade_selected() -> void:
         
     get_tree().paused = false
     visible = false
-    emit_signal("upgrade_selected")
+    emit_signal("upgrade_menu_finished")

@@ -18,7 +18,3 @@ func get_spawn_count(delta: float) -> int:
         remaining_enemies -= 1
         time_since_spawn -= spawn_interval
     return spawn_count
-
-
-func _on_SpawnManager_new_wave_spawned():
-    pass # Replace with function body.
