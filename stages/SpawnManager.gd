@@ -21,6 +21,7 @@ var cum_delta
 signal new_wave_spawned
 signal enemies_to_kill_updated
 signal wave_cleared
+signal game_won
 
 func _ready() -> void:
     trigger_next_wave()
@@ -47,6 +48,8 @@ func spawn_next_wave():
         get_next_spawn_group()
         
         emit_signal("new_wave_spawned", current_wave_idx, enemies_in_wave)
+    else:
+        emit_signal("game_won")
 
 func _process(delta: float) -> void:
     if current_wave:
