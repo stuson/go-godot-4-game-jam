@@ -4,7 +4,7 @@ const BASE_DAMAGE = 8
 const BASE_ATTACK_INTERVAL = 2.5
 
 var fireball: Node2D
-export(PackedScene) var Projectile
+export(PackedScene) var Fireball
 
 func _ready() -> void:
     base_damage = BASE_DAMAGE
@@ -12,7 +12,7 @@ func _ready() -> void:
     update_rof()
 
 func make_attack() -> void:
-    fireball = Projectile.indstance()
+    fireball = Fireball.instance()
     fireball.global_transform = global_transform
     fireball.damage = damage
     fireball.knockback_multiplier = player_stats.knockback_multiplier

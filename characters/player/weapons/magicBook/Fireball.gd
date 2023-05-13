@@ -1,8 +1,11 @@
 extends Node2D
 
-onready var life_timer = $Timer
+onready var life_timer = $LifeTimer
 onready var fade_out = $FadeOut
-onready var Explosion = $Explosion
+onready var Projectile = $Hitbox
+
+var fireballexplosion: Node2D
+export(PackedScene) var FireballExplosion
 
 var projectile_speed = 300
 var velocity
@@ -17,13 +20,18 @@ func _physics_process(delta: float) -> void:
     global_translate(velocity * delta)
     
 func _on_LifeTimer_timeout() -> void:
-    Explosion.monitoring = false
+    Projectile.monitoring = false
     fade_out.play("Fade Out")
+
 
 
 func _on_Area2D_body_entered(body: Node) -> void:
     if body.has_node("Stats"):
-        body.take_hit(damage, transform.x.normalized(), knockback_multiplier)
+        fireballexplosion = FireballExplosion.instance()
+        fireballexplosion.damage = damage
+        get_tree().current_scene.add_child(fireballexplosion)
+        fireballexplosion.global_position = global_position
+        
         
     
     queue_free()
