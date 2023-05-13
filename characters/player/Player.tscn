@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://characters/Stats.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/weapons/sword/Sword.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=3]
 [ext_resource path="res://assets/Player/percival_.png" type="Texture" id=4]
 [ext_resource path="res://characters/player/PlayerMaterial.tres" type="Material" id=5]
+[ext_resource path="res://characters/player/weapons/bow/Bow.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 4 )
@@ -210,13 +211,12 @@ height = 4.0
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 3 )
-StartingWeapon = ExtResource( 2 )
+StartingWeapons = [ ExtResource( 2 ), ExtResource( 6 ) ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 5 )
 frames = SubResource( 8 )
 animation = "default_r"
-frame = 3
 playing = true
 offset = Vector2( 0, -4 )
 
