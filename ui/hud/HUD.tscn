@@ -15,7 +15,7 @@ margin_top = -47.0
 margin_right = 67.0
 margin_bottom = -15.0
 custom_fonts/font = ExtResource( 1 )
-text = "HP: 5/5"
+text = "HP: 100/100"
 valign = 2
 
 [node name="WaveInfoContainer" type="VBoxContainer" parent="."]

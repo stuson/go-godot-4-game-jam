@@ -11,18 +11,28 @@ signal upgrade_menu_finished
 
 func _on_SpawnManager_wave_cleared() -> void:
     get_tree().paused = true
-    var unused_upgrades = UpgradeList.upgrades["Common"].duplicate()
+    var unused_upgrades = UpgradeList.upgrades.duplicate()
     for _i in range(0, NUM_UPGRADES):
         if unused_upgrades:
             randomize()
-            var upgrade = unused_upgrades.pop_at(int(rand_range(0, unused_upgrades.size())))
+            var rarity = upgrade_rarity()
+            var upgrade = unused_upgrades[rarity].pop_at(int(rand_range(0, unused_upgrades.size())))
             var upgradePanel = upgradePanelScene.instance()
             upgradePanel.upgrade_name = upgrade["title"]
             upgradePanel.upgrade_desc = upgrade["description"]
             upgradePanel.upgrades = upgrade["upgrades"]
+            
             upgradePanel.connect("upgrade_selected", self, "_on_Upgrade_selected")
             container.add_child(upgradePanel)
-        
+            
+            match rarity:
+                "Uncommon": 
+                    upgradePanel.name_tag.set("custom_colors/font_color", Color.green)
+                    upgradePanel.desc_tag.set("custom_colors/font_color", Color.green)
+                "Rare": 
+                    upgradePanel.name_tag.set("custom_colors/font_color", Color.blue)
+                    upgradePanel.desc_tag.set("custom_colors/font_color", Color.blue)
+
     visible = true
 
 func _on_Upgrade_selected() -> void:
@@ -32,3 +42,14 @@ func _on_Upgrade_selected() -> void:
     get_tree().paused = false
     visible = false
     emit_signal("upgrade_menu_finished")
+    
+func upgrade_rarity():
+    randomize()
+    var chance = randf()
+    if chance > 0.9:
+        return "Rare"
+    elif chance > 0.6:
+        return "Uncommon"
+    else:
+        return "Common"
+    

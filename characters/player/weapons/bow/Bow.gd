@@ -1,6 +1,6 @@
 extends Weapon
 
-const BASE_DAMAGE = 5
+const BASE_DAMAGE = 70
 const BASE_ATTACK_INTERVAL = 1.4
 
 var arrow: Node2D

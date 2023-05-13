@@ -27,8 +27,7 @@ onready var hitbox: Area2D = $Area2D
 export(PackedScene) var death_explosion
 
 func _ready() -> void:
-    stats.max_hp = max_hp
-    stats.current_hp = max_hp
+    stats.initialize_hp(max_hp, max_hp)
     stats.move_speed = speed
     stats.connect("die", self, "_on_Stats_die")
     nav_timer.connect("timeout", self, "_on_NavigationRefreshTimer_timeout")
@@ -54,21 +53,21 @@ func take_hit(damage_taken, knockback_direction, knockback_multiplier, is_crit =
     hit_sfx_player.pitch_scale = rand_range(0.9, 1.1)
     hit_sfx_player.stream = hit_sfx[randi() % hit_sfx.size()]
     hit_sfx_player.play()
-    knockback_velocity = knockback_direction * min(damage, 10) * speed * 5 * knockback_multiplier
-    stats.take_hit(damage_taken)
+    knockback_velocity = knockback_direction * min(damage, 10) * speed * knockback_multiplier
+    stats.take_hit(damage_taken, is_crit)
     
     sprite_material.set_shader_param("redden", true)
     if stats.current_hp > 0:
         yield(get_tree().create_timer(0.15), "timeout")
         sprite_material.set_shader_param("redden", false)
     
-    var damage_number = DamageNumber.instance()
-    damage_number.amount = damage_taken
-    if is_crit:
-        damage_number.max_scale = Vector2(1.5, 1.5)
-        damage_number.color = Color.red
-    get_tree().current_scene.add_child(damage_number)
-    damage_number.global_position = global_position
+#    var damage_number = DamageNumber.instance()
+#    damage_number.amount = damage_taken
+#    if is_crit:
+#        damage_number.max_scale = Vector2(1.5, 1.5)
+#        damage_number.color = Color.red
+#    get_tree().current_scene.add_child(damage_number)
+#    damage_number.global_position = global_position
     
 func get_knockback_velocity() -> Vector2:
     knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
@@ -87,6 +86,7 @@ func _on_Stats_die() -> void:
     animated_sprite.animation = "die"
     yield(animated_sprite, "animation_finished")
     animated_sprite.visible = false
+    player.get_node("Stats").current_hp += player.get_node("Stats").life_on_kill
     
     var explosion = death_explosion.instance()
     explosion.color = explode_color

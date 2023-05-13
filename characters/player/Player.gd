@@ -80,7 +80,7 @@ func take_hit(damage, enemy_pos):
     if not invincible:
         $Stats.take_hit(damage)
         var knockback_direction = (global_position - enemy_pos).normalized()
-        knockback_velocity = knockback_direction * min(damage, 10) * 1000
+        knockback_velocity = knockback_direction * min(damage, 10) * 100
         
         start_invincibility()
         
