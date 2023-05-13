@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Go Godot 4 Game Jam"
-run/main_scene="res://stages/Level.tscn"
+run/main_scene="res://ui/MainMenu.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]

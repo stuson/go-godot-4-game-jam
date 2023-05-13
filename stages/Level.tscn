@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -15,7 +15,9 @@
 [ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=13]
 [ext_resource path="res://stages/DeathMessage.gd" type="Script" id=14]
 [ext_resource path="res://ui/hud/PauseMenu.tscn" type="PackedScene" id=15]
-[ext_resource path="res://characters/enemies/duplicator_enemy/DuplicatorEnemy.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=16]
+[ext_resource path="res://stages/VictoryMessage.gd" type="Script" id=17]
+[ext_resource path="res://characters/enemies/duplicator_enemy/DuplicatorEnemy.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -954,7 +956,7 @@ spawn_interval = 0.2
 
 [node name="Spawn2" type="Node" parent="SpawnManager/Waves/Wave1/Group1"]
 script = ExtResource( 10 )
-Enemy = ExtResource( 16 )
+Enemy = ExtResource( 18 )
 num_enemies = 6
 spawn_interval = 0.2
 
@@ -1027,7 +1029,58 @@ stream = ExtResource( 12 )
 autoplay = true
 bus = "BGM"
 
+[node name="VictoryMessage" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource( 17 )
+rewards = [ "A thumbs-up from your monarch", "A pat on the back", "Your favourite food for dinner, cooked by your mum", "A wink from your god", "Immortality", "50% off sandwiches at Tescos", "A Bag for Life" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VictoryMessage"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -154.0
+margin_top = -57.0
+margin_right = 154.0
+margin_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinMessage" type="Label" parent="VictoryMessage/VBoxContainer"]
+margin_right = 308.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 13 )
+text = "You Won!"
+align = 1
+
+[node name="RewardHeader" type="Label" parent="VictoryMessage/VBoxContainer"]
+margin_top = 54.0
+margin_right = 308.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 16 )
+text = "Your reward is..."
+align = 1
+
+[node name="RewardBody" type="Label" parent="VictoryMessage/VBoxContainer"]
+margin_top = 86.0
+margin_right = 308.0
+margin_bottom = 114.0
+custom_colors/font_color = Color( 0.835294, 0.803922, 0, 1 )
+custom_fonts/font = ExtResource( 16 )
+align = 1
+autowrap = true
+
+[node name="RestartMessage" type="Label" parent="VictoryMessage/VBoxContainer"]
+margin_top = 118.0
+margin_right = 308.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 13 )
+text = "Press R to restart"
+align = 1
+valign = 1
+
 [connection signal="player_died" from="Player" to="DeathMessage" method="_on_Player_player_died"]
+[connection signal="game_won" from="SpawnManager" to="VictoryMessage" method="_on_SpawnManager_game_won"]
 [connection signal="wave_cleared" from="SpawnManager" to="UpgradesMenu" method="_on_SpawnManager_wave_cleared"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="SpawnManager/WaveDelayTimer" to="SpawnManager" method="_on_WaveDelayTimer_timeout"]
