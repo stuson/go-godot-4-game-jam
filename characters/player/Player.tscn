@@ -216,7 +216,6 @@ StartingWeapon = ExtResource( 2 )
 material = ExtResource( 5 )
 frames = SubResource( 8 )
 animation = "default_r"
-frame = 1
 playing = true
 offset = Vector2( 0, -4 )
 

@@ -22,6 +22,7 @@ onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var sprite_material: ShaderMaterial = animated_sprite.material
 onready var hit_sfx_player: AudioStreamPlayer2D = $HitSfxPlayer
 onready var animation_player: AnimationPlayer = $AnimationPlayer
+onready var hitbox: Area2D = $Area2D
 
 export(PackedScene) var death_explosion
 
@@ -78,7 +79,10 @@ func play_explosion_effect_animation(color: Color) -> void:
     animation_player.play("explosion_effect")
 
 func _on_Stats_die() -> void:
-    set_collision_layer_bit(3, false)
+    set_collision_layer_bit(2, false)
+    set_collision_mask_bit(2, false)
+    hitbox.set_collision_layer_bit(2, false)
+    hitbox.set_collision_mask_bit(1, false)
     dying = true
     animated_sprite.animation = "die"
     yield(animated_sprite, "animation_finished")
