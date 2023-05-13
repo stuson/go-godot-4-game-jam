@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/sound/battle_loop.mp3" type="AudioStream" id=12]
 [ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=13]
 [ext_resource path="res://stages/DeathMessage.gd" type="Script" id=14]
+[ext_resource path="res://ui/hud/PauseMenu.tscn" type="PackedScene" id=15]
 [ext_resource path="res://characters/player/weapons/sword/Sword.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
@@ -993,6 +994,8 @@ tile_data = PoolIntArray( -851984, 0, 4, -851983, 0, 5, -851982, 0, 5, -851981, 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [node name="UpgradesMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 15 )]
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["MainCamera"]]
 rotating = true
