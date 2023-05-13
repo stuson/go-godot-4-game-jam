@@ -246,7 +246,7 @@ death_explosion = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 25 )
-frame = 21
+frame = 0
 playing = true
 centered = false
 offset = Vector2( -8, -12 )
@@ -272,6 +272,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="HitSfxPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = "SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 42 )

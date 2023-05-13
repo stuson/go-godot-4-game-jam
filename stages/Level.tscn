@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -14,7 +14,8 @@
 [ext_resource path="res://assets/sound/battle_loop.mp3" type="AudioStream" id=12]
 [ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=13]
 [ext_resource path="res://stages/DeathMessage.gd" type="Script" id=14]
-[ext_resource path="res://characters/player/weapons/bow/Bow.tscn" type="PackedScene" id=15]
+[ext_resource path="res://ui/hud/PauseMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://characters/player/weapons/sword/Sword.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -994,6 +995,8 @@ one_shot = true
 
 [node name="UpgradesMenu" parent="." instance=ExtResource( 7 )]
 
+[node name="PauseMenu" parent="." instance=ExtResource( 15 )]
+
 [node name="Camera2D" type="Camera2D" parent="." groups=["MainCamera"]]
 rotating = true
 current = true
@@ -1023,6 +1026,7 @@ valign = 1
 pause_mode = 2
 stream = ExtResource( 12 )
 autoplay = true
+bus = "BGM"
 
 [connection signal="player_died" from="Player" to="DeathMessage" method="_on_Player_player_died"]
 [connection signal="wave_cleared" from="SpawnManager" to="UpgradesMenu" method="_on_SpawnManager_wave_cleared"]
