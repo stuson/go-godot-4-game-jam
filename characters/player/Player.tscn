@@ -216,6 +216,7 @@ StartingWeapon = ExtResource( 2 )
 material = ExtResource( 5 )
 frames = SubResource( 8 )
 animation = "default_r"
+frame = 3
 playing = true
 offset = Vector2( 0, -4 )
 
@@ -239,8 +240,13 @@ shape = SubResource( 3 )
 [node name="BlinkTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="RollCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="die" from="Stats" to="." method="_on_Stats_die"]
 [connection signal="timeout" from="OnHitInvicibilityTimer" to="." method="_on_OnHitInvicibilityTimer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
+[connection signal="timeout" from="RollCooldown" to="." method="_on_RollCooldown_timeout"]
