@@ -8,6 +8,7 @@ export var speed = 100
 export(Color) var explode_color
 export(float) var explode_scale = 1.0
 export(Array, AudioStream) var hit_sfx
+export(PackedScene) var DamageNumber
 
 var velocity: Vector2
 var knockback_velocity = Vector2.ZERO
@@ -20,6 +21,7 @@ onready var nav_timer = $NavigationRefreshTimer
 onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var sprite_material: ShaderMaterial = animated_sprite.material
 onready var hit_sfx_player: AudioStreamPlayer2D = $HitSfxPlayer
+onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 export(PackedScene) var death_explosion
 
@@ -47,7 +49,7 @@ func _physics_process(delta: float) -> void:
     if animated_sprite.animation != "default" and velocity.length() == 0:
         animated_sprite.animation = "default"
 
-func take_hit(damage_taken, knockback_direction, knockback_multiplier):
+func take_hit(damage_taken, knockback_direction, knockback_multiplier, is_crit = false):
     hit_sfx_player.pitch_scale = rand_range(0.9, 1.1)
     hit_sfx_player.stream = hit_sfx[randi() % hit_sfx.size()]
     hit_sfx_player.play()
@@ -58,10 +60,22 @@ func take_hit(damage_taken, knockback_direction, knockback_multiplier):
     if stats.current_hp > 0:
         yield(get_tree().create_timer(0.15), "timeout")
         sprite_material.set_shader_param("redden", false)
-
+    
+    var damage_number = DamageNumber.instance()
+    damage_number.amount = damage_taken
+    if is_crit:
+        damage_number.max_scale = Vector2(1.5, 1.5)
+        damage_number.color = Color.red
+    get_tree().current_scene.add_child(damage_number)
+    damage_number.global_position = global_position
+    
 func get_knockback_velocity() -> Vector2:
     knockback_velocity = lerp(knockback_velocity, Vector2.ZERO, 0.2)
     return knockback_velocity
+
+func play_explosion_effect_animation(color: Color) -> void:
+    sprite_material.set_shader_param("buff_color", color)
+    animation_player.play("explosion_effect")
 
 func _on_Stats_die() -> void:
     set_collision_layer_bit(3, false)
@@ -77,8 +91,6 @@ func _on_Stats_die() -> void:
     explosion.scale *= explode_scale * sqrt(scale.length())
 
     get_tree().current_scene.call_deferred("add_child", explosion)
-
-
 
 func _on_NavigationRefreshTimer_timeout() -> void:
     nav_agent.set_target_location(player.global_position)

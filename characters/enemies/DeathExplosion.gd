@@ -11,11 +11,11 @@ func _ready() -> void:
     explosion_material.set_shader_param("color", color)
     player.play("Explosion")
 
-func _on_AnimationPlayer_animation_finished(anim_name):
-    if anim_name == "Explosion":
-        var bodies = area.get_overlapping_bodies()
-        death_action.call_func(bodies)
-        player.play("Explosion Fade")
-    elif anim_name == "Explosion Fade":
-        queue_free()
+func apply_explosion_effect():
+    var bodies = area.get_overlapping_bodies()
+    for body in bodies:
+        body.play_explosion_effect_animation(color)
+    death_action.call_func(bodies)
         
+func remove_explosion():
+    queue_free()

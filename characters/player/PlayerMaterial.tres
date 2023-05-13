@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=45]
+code = "shader_type canvas_item;
+
+uniform bool whiten = false;
+uniform bool apply_blink_opacity = false;
+
+void fragment() {
+    vec4 texture_color = texture(TEXTURE, UV);
+    
+    if (whiten) {
+        vec3 white = vec3(1,1,1);
+        vec3 whitened_texture_rgb = mix(texture_color.rgb, white, 0.6);
+        texture_color = vec4(whitened_texture_rgb, texture_color.a);
+    }
+    
+    if (apply_blink_opacity) {
+        texture_color = vec4(texture_color.rgb, texture_color.a * 0.2);
+    }
+    
+    COLOR = texture_color;
+}"
+
+[resource]
+shader = SubResource( 45 )
+shader_param/whiten = false
+shader_param/apply_blink_opacity = false
