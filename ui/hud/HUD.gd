@@ -5,9 +5,12 @@ onready var wave_label = $WaveInfoContainer/WaveLabel
 onready var enemies_remaining_label = $WaveInfoContainer/EnemiesRemainingLabel
 onready var player: Node2D = get_tree().get_nodes_in_group("Player")[0]
 onready var spawn_manager: Node = get_tree().get_nodes_in_group("SpawnManager")[0]
+onready var weapon_icons = $Weapons.get_children()
+onready var switch_weapon_sfx = $SwitchWeaponSfx
 
 func _ready() -> void:
     player.get_node("Stats").connect("hp_changed", self, "_on_Player_Stats_hp_changed")
+    player.connect("weapon_cycled", self, "_on_Player_weapon_cycled")
     spawn_manager.connect("new_wave_spawned", self, "_on_SpawnManager_new_wave_spawned")
     spawn_manager.connect("enemies_to_kill_updated", self, "_on_SpawnManager_enemies_to_kill_updated")
         
@@ -23,3 +26,11 @@ func _on_SpawnManager_enemies_to_kill_updated(enemies_to_kill) -> void:
         enemies_remaining_label.text = "More..."
     else:
         enemies_remaining_label.text = "Enemies Remaining: %s" % enemies_to_kill
+
+func _on_Player_weapon_cycled(weapon_idx) -> void:
+    for weapon_icon in weapon_icons:
+        weapon_icon.get_node("SelectionBG").visible = false
+    weapon_icons[weapon_idx].get_node("SelectionBG").visible = true
+    randomize()
+    switch_weapon_sfx.pitch_scale = rand_range(0.9, 1.1)
+    switch_weapon_sfx.play()
