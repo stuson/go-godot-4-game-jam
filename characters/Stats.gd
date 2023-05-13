@@ -47,13 +47,13 @@ func set_current_hp(new_current_hp, is_crit=false):
 
     var damage_number = DamageNumber.instance()
     damage_number.amount = abs(current_hp - new_current_hp)
-    if parent.is_in_group("Player"):
-        damage_number.color = Color.red
+    if new_current_hp > current_hp:
+        damage_number.color = Color.green
     elif is_crit:
         damage_number.max_scale = Vector2(1.5, 1.5)
         damage_number.color = Color.darkorange
-    elif new_current_hp > current_hp:
-        damage_number.color = Color.green
+    elif parent.is_in_group("Player"):
+        damage_number.color = Color.red
     get_tree().current_scene.add_child(damage_number)
     damage_number.global_position = parent.global_position
     
