@@ -8,6 +8,7 @@ export var speed = 100
 export(Color) var explode_color
 export(float) var explode_scale = 1.0
 export(Array, AudioStream) var hit_sfx
+export(String, "hp", "attack", "speed", "duplicate") var buff_icon
 
 var velocity: Vector2
 var knockback_velocity = Vector2.ZERO
@@ -93,6 +94,7 @@ func _on_Stats_die() -> void:
         explosion.death_action = funcref(self, "explode")
         explosion.global_position = global_position
         explosion.scale *= explode_scale * sqrt(scale.length())
+        explosion.icon = buff_icon
 
         get_tree().current_scene.call_deferred("add_child", explosion)
     else:

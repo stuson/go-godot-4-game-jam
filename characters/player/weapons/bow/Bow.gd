@@ -4,7 +4,10 @@ const BASE_DAMAGE = 70
 const BASE_ATTACK_INTERVAL = 1.4
 
 var arrow: Node2D
+
 export(PackedScene) var Projectile
+
+onready var shoot_sfx: AudioStreamPlayer = $ShootSfx
 
 func _ready() -> void:
     base_damage = BASE_DAMAGE
@@ -23,3 +26,7 @@ func make_attack(direction: Vector2, is_crit: bool) -> void:
     get_tree().current_scene.add_child(arrow)
     arrow.look_at(direction)
     arrow.velocity = arrow.transform.x.normalized() * arrow.projectile_speed
+    
+    randomize()
+    shoot_sfx.pitch_scale = rand_range(0.9, 1.1)
+    shoot_sfx.play()
