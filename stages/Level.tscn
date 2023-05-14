@@ -1609,7 +1609,7 @@ spawn_duration = 1.0
 script = ExtResource( 10 )
 Enemy = ExtResource( 18 )
 num_enemies = 12
-spawn_interval = 0.6
+spawn_interval = 0.4
 
 [node name="Group2" type="Node" parent="SpawnManager/Waves/DistillationStation"]
 script = ExtResource( 9 )
@@ -1619,7 +1619,7 @@ spawn_duration = 1.0
 script = ExtResource( 10 )
 Enemy = ExtResource( 19 )
 num_enemies = 12
-spawn_interval = 0.6
+spawn_interval = 0.4
 
 [node name="Group4" type="Node" parent="SpawnManager/Waves/DistillationStation"]
 script = ExtResource( 9 )
@@ -1750,19 +1750,19 @@ wave_name = "Back Rank Mate"
 
 [node name="Group1" type="Node" parent="SpawnManager/Waves/BackRankMate"]
 script = ExtResource( 9 )
-spawn_duration = 4.0
+spawn_duration = 1.0
 
 [node name="Duplicator" type="Node" parent="SpawnManager/Waves/BackRankMate/Group1"]
 script = ExtResource( 10 )
 Enemy = ExtResource( 20 )
 num_enemies = 6
-spawn_interval = 1.0
+spawn_interval = 0.9
 
 [node name="Tank" type="Node" parent="SpawnManager/Waves/BackRankMate/Group1"]
 script = ExtResource( 10 )
 Enemy = ExtResource( 8 )
 num_enemies = 12
-spawn_interval = 2.0
+spawn_interval = 0.8
 
 [node name="Group3" type="Node" parent="SpawnManager/Waves/BackRankMate"]
 script = ExtResource( 9 )
