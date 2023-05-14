@@ -255,7 +255,7 @@ script = ExtResource( 3 )
 damage = 10
 max_hp = 100
 speed = 50
-explode_color = Color( 0.709804, 0.0235294, 0.0235294, 1 )
+explode_color = Color( 0.0705882, 0.447059, 0.027451, 1 )
 explode_scale = 2.0
 hit_sfx = [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 23 ) ]
 death_explosion = ExtResource( 28 )
@@ -263,7 +263,7 @@ death_explosion = ExtResource( 28 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 4 )
 frames = SubResource( 26 )
-frame = 17
+frame = 7
 playing = true
 centered = false
 offset = Vector2( -16, -24 )
