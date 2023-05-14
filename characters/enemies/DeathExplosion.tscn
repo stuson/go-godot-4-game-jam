@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/death_explosion.png" type="Texture" id=1]
 [ext_resource path="res://characters/enemies/DeathExplosion.gd" type="Script" id=2]
+[ext_resource path="res://assets/#2 - Transparent Icons & Drop Shadow.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 15.0
@@ -9,7 +10,7 @@ height = 30.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Explosion"
-length = 1.125
+length = 1.875
 step = 0.0625
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -30,7 +31,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5625, 1.0625 ),
+"times": PoolRealArray( 0.5625, 1.875 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -39,6 +40,38 @@ tracks/1/keys = {
 "args": [  ],
 "method": "remove_explosion"
 } ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("BuffIndicator:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("BuffIndicator:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -8, -0.25, 0, 0.5625, 11, -20, -0.4375, -9, 0.25, 3, -20, 0, 0, 0, 0 ),
+"times": PoolRealArray( 0.1875, 1.125, 1.6875 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BuffIndicator:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5625, 0.8125, 1.5625 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Shader" id=4]
@@ -56,6 +89,14 @@ void fragment() {
 resource_local_to_scene = true
 shader = SubResource( 4 )
 shader_param/color = Plane( 1, 1, 1, 1 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 64, 32, 32 )
 
 [node name="DeathExplosion" type="Node2D"]
 script = ExtResource( 2 )
@@ -78,3 +119,22 @@ centered = false
 offset = Vector2( -36, -26 )
 hframes = 6
 vframes = 3
+frame = 17
+
+[node name="BuffIndicator" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -20 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Icon" type="Sprite" parent="BuffIndicator"]
+position = Vector2( -12, 0 )
+texture = SubResource( 8 )
+centered = false
+offset = Vector2( -16, -16 )
+
+[node name="Up" type="Sprite" parent="BuffIndicator"]
+position = Vector2( 12, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 9 )
+centered = false
+offset = Vector2( -16, -16 )
