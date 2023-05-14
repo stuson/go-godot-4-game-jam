@@ -240,7 +240,7 @@ damage = 5
 max_hp = 25
 speed = 170
 explode_color = Color( 0.0588235, 0.133333, 0.909804, 1 )
-explode_scale = 1.5
+explode_scale = 2.0
 hit_sfx = [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 23 ) ]
 death_explosion = ExtResource( 5 )
 
@@ -267,6 +267,9 @@ rotation = 1.5708
 shape = SubResource( 41 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 5.0
+neighbor_dist = 200.0
 
 [node name="NavigationRefreshTimer" type="Timer" parent="."]
 wait_time = 0.1

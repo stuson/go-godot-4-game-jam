@@ -263,6 +263,9 @@ rotation = 1.5708
 shape = SubResource( 41 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 5.0
+neighbor_dist = 200.0
 
 [node name="NavigationRefreshTimer" type="Timer" parent="."]
 wait_time = 0.1

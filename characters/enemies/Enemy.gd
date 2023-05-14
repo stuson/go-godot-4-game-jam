@@ -34,6 +34,7 @@ func _ready() -> void:
     stats.move_speed = speed
     stats.connect("die", self, "_on_Stats_die")
     nav_timer.connect("timeout", self, "_on_NavigationRefreshTimer_timeout")
+    nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
     
 func _physics_process(delta: float) -> void:
     if dying:
@@ -44,13 +45,16 @@ func _physics_process(delta: float) -> void:
         var direction = global_transform.origin.direction_to(target_pos)
         velocity = (direction * stats.move_speed).limit_length(1000)
         velocity += get_knockback_velocity()
-        move_and_slide(velocity)
+        nav_agent.set_velocity(velocity)
     
     if animated_sprite.animation != "walk" and velocity.length() > 0:
         animated_sprite.animation = "walk"
     
     if animated_sprite.animation != "default" and velocity.length() == 0:
         animated_sprite.animation = "default"
+
+func _on_velocity_computed(safe_velocity):
+    move_and_slide(safe_velocity)
 
 func take_hit(damage_taken, knockback_direction, knockback_multiplier, is_crit = false):
     hit_sfx_player.pitch_scale = rand_range(0.9, 1.1)
@@ -111,7 +115,8 @@ func death_explosion_effect(body) -> void:
 
 func clone() -> Enemy:
     var dupe = load(filename).instance()
-    var dupe_stats = dupe.get_node("Stats") 
+    dupe.scale = scale
+    var dupe_stats = dupe.get_node("Stats")
     dupe_stats.update(stats)
     emit_signal("duplicated", dupe)
     return dupe
