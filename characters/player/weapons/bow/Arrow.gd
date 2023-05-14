@@ -26,14 +26,15 @@ func _on_Timer_timeout() -> void:
 func hit(collision: KinematicCollision2D) -> void:
     var id = collision.collider_id
     var body = collision.collider
-    if body.has_node("Stats") and not id in hit_objects:
-        body.take_hit(damage, transform.x.normalized(), knockback_multiplier, is_crit)
-        hit_objects.append(id)
-            
-    if chain > 0:
-        bounce(collision)
-    else:
-        queue_free()
+    if not id in hit_objects:
+        if body.has_node("Stats"):
+            body.take_hit(damage, transform.x.normalized(), knockback_multiplier, is_crit)
+            hit_objects.append(id)
+                
+        if chain > 0:
+            bounce(collision)
+        else:
+            queue_free()
 
 func bounce(collision: KinematicCollision2D) -> void:
     randomize()
