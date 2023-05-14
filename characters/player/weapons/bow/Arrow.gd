@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var life_timer = $Timer
+onready var bounce_sfx: AudioStreamPlayer = $BounceSfx
 
 var projectile_speed = 500
 var velocity
@@ -9,6 +10,7 @@ var knockback_multiplier
 var chain
 var is_crit
 var hit_objects = []
+var pitch_amount = 0
 
 func _ready() -> void:
     life_timer.start()
@@ -34,7 +36,12 @@ func hit(collision: KinematicCollision2D) -> void:
         queue_free()
 
 func bounce(collision: KinematicCollision2D) -> void:
+    randomize()
+    bounce_sfx.pitch_scale = rand_range(1.2, 1.4) + pitch_amount
+    bounce_sfx.play()
+    
     chain -= 1
+    pitch_amount += 0.5
     
     var all_enemies = get_tree().get_nodes_in_group("enemy")
     var enemy_found = false

@@ -19,6 +19,8 @@ onready var roll_timer = $RollCooldown
 onready var animated_sprite: AnimatedSprite = $AnimatedSprite
 onready var sprite_material: ShaderMaterial = $AnimatedSprite.material
 onready var stats: Stats = $Stats
+onready var footstep_sfx: AudioStreamPlayer = $FootstepSfx
+onready var hit_sfx: AudioStreamPlayer = $HitSfx
 
 signal player_died
 signal weapon_cycled
@@ -95,6 +97,7 @@ func get_knockback(delta) -> Vector2:
 
 func take_hit(damage, enemy_pos):
     if not invincible:
+        hit_sfx.play()
         $Stats.take_hit(damage)
         var knockback_direction = (global_position - enemy_pos).normalized()
         knockback_velocity = knockback_direction * min(damage, 10) * 100
@@ -147,3 +150,9 @@ func _on_AnimatedSprite_animation_finished() -> void:
 
 func _on_RollCooldown_timeout() -> void:
     can_roll = true
+
+func _on_FootstepTimer_timeout() -> void:
+    if velocity:
+        randomize()
+        footstep_sfx.pitch_scale = rand_range(0.8, 1.2)
+        footstep_sfx.play()

@@ -63,6 +63,7 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 UpgradeList="*res://upgrades/UpgradeList.gd"
+MainMenuMusic="*res://ui/MainMenuMusic.tscn"
 
 [display]
 

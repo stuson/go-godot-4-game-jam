@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Slime Knight Main Menu.mp3-dea872a2a4fb65e8f0ea29d6b0e5c3a2.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Slime Knight Main Menu.mp3"
+dest_files=[ "res://.import/Slime Knight Main Menu.mp3-dea872a2a4fb65e8f0ea29d6b0e5c3a2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
