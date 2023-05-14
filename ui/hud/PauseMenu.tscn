@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/hud/PauseMenu.gd" type="Script" id=1]
-[ext_resource path="res://ui/hud/VolumeSlider.gd" type="Script" id=2]
+[ext_resource path="res://ui/VolumeControls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=4]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -16,106 +18,56 @@ color = Color( 0.219608, 0.207843, 0.207843, 0.560784 )
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 284.0
-margin_top = 155.0
-margin_right = 484.0
-margin_bottom = 277.0
-rect_min_size = Vector2( 200, 0 )
+margin_left = 184.0
+margin_top = 118.0
+margin_right = 584.0
+margin_bottom = 314.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 3
 custom_constants/separation = 10
+alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 14.0
+margin_right = 400.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
 text = "Paused"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 200.0
-margin_bottom = 92.0
-custom_constants/separation = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_right = 151.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-custom_constants/separation = 10
-
-[node name="MasterSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 151.0
-margin_bottom = 16.0
-size_flags_horizontal = 3
-value = 100.0
-script = ExtResource( 2 )
-
-[node name="BGMSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 26.0
-margin_right = 151.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-value = 100.0
-script = ExtResource( 2 )
-audio_bus_name = "BGM"
-
-[node name="SFXSlider" type="HSlider" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 52.0
-margin_right = 151.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-value = 100.0
-script = ExtResource( 2 )
-audio_bus_name = "SFX"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 156.0
-margin_right = 200.0
-margin_bottom = 68.0
-custom_constants/separation = 12
-
-[node name="MasterLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 44.0
-margin_bottom = 14.0
-text = "Master"
-align = 2
-
-[node name="BGMLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 26.0
-margin_right = 44.0
-margin_bottom = 40.0
-text = "BGM"
-
-[node name="SFXLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 52.0
-margin_right = 44.0
-margin_bottom = 66.0
-text = "SFX"
+[node name="VolumeControls" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 60.0
+margin_right = 400.0
+margin_bottom = 152.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 102.0
-margin_right = 200.0
-margin_bottom = 122.0
+margin_top = 162.0
+margin_right = 400.0
+margin_bottom = 196.0
 
 [node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
-margin_right = 98.0
-margin_bottom = 20.0
+margin_right = 198.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
 text = "Resume"
+flat = true
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
-margin_left = 102.0
-margin_right = 200.0
-margin_bottom = 20.0
+margin_left = 202.0
+margin_right = 400.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
 text = "Quit"
+flat = true
 
-[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/MasterSlider" to="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/MasterSlider" method="release_focus"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/MasterSlider" to="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/MasterSlider" method="_on_value_changed"]
-[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/BGMSlider" to="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/BGMSlider" method="release_focus"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/BGMSlider" to="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/BGMSlider" method="_on_value_changed"]
-[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/SFXSlider" to="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/SFXSlider" method="release_focus"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/SFXSlider" to="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/SFXSlider" method="_on_value_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/QuitButton" to="." method="_on_QuitButton_pressed"]
