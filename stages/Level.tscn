@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -988,6 +988,70 @@ vertices = PoolVector2Array( 2169, -888, 2373, -887, 3220, -802, 3167, -802, 120
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 10, 11, 12, 13, 14, 15 ), PoolIntArray( 16, 17, 18, 19, 20, 21 ), PoolIntArray( 22, 23, 24, 8, 7, 25, 26, 27 ), PoolIntArray( 28, 29, 30, 31 ), PoolIntArray( 32, 33, 34, 17, 16, 35, 36 ), PoolIntArray( 37, 29, 28, 38 ), PoolIntArray( 39, 40, 41, 42, 43, 44, 45, 46 ), PoolIntArray( 47, 48, 49, 50 ), PoolIntArray( 19, 18, 48, 43, 42 ), PoolIntArray( 51, 43, 48 ), PoolIntArray( 52, 51, 48, 47, 2 ), PoolIntArray( 34, 13, 12, 17 ), PoolIntArray( 53, 44, 52, 2, 1 ), PoolIntArray( 54, 6, 49, 29 ), PoolIntArray( 55, 56, 57, 4, 49, 6, 9 ), PoolIntArray( 54, 29, 37, 58, 25 ), PoolIntArray( 59, 53, 1, 60 ), PoolIntArray( 27, 31, 61, 62 ), PoolIntArray( 61, 31, 63, 64, 65 ), PoolIntArray( 38, 28, 26, 66 ), PoolIntArray( 67, 39, 46, 59, 60, 68, 69 ), PoolIntArray( 68, 60, 70 ), PoolIntArray( 63, 31, 30, 71 ), PoolIntArray( 71, 30, 72, 73 ), PoolIntArray( 44, 53, 45 ), PoolIntArray( 74, 68, 70, 0, 5, 75 ), PoolIntArray( 76, 77, 78, 79, 80 ), PoolIntArray( 55, 81, 24, 23, 82 ), PoolIntArray( 83, 84, 85, 79 ), PoolIntArray( 21, 86, 67, 69, 87, 88, 89, 90 ), PoolIntArray( 4, 3, 50, 49 ), PoolIntArray( 85, 91, 11, 10, 92, 79 ), PoolIntArray( 21, 20, 41, 40, 86 ), PoolIntArray( 93, 36, 35, 90, 89, 94 ), PoolIntArray( 55, 9, 81 ), PoolIntArray( 15, 14, 33, 32, 95 ), PoolIntArray( 22, 96, 65, 64, 97 ), PoolIntArray( 64, 73, 72, 97 ), PoolIntArray( 79, 92, 95, 32, 80 ), PoolIntArray( 76, 80, 93, 94, 98 ), PoolIntArray( 98, 94, 99 ), PoolIntArray( 99, 88, 87, 74, 75, 98 ), PoolIntArray( 98, 75, 57, 56, 100 ), PoolIntArray( 72, 98, 100, 82, 23, 101 ), PoolIntArray( 25, 58, 66, 26 ), PoolIntArray( 22, 27, 62, 96 ), PoolIntArray( 97, 72, 101 ) ]
 outlines = [ PoolVector2Array( -403, -854, 300, -853, 301, -1546, 13, -1548, 9, -2261, 553, -2259, 553, -3030, 1585, -3031, 1584, -2580, 2318, -2580, 2322, -2262, 2965, -2261, 2966, -1587, 3732, -1587, 3733, -588, 2964, -588, 2965, 817, -407, 821 ), PoolVector2Array( 1148, -1701, 1639, -1702, 1636, -1527, 1146, -1527 ), PoolVector2Array( 1025, -1350, 1076, -1351, 1076, -1311, 1025, -1311 ), PoolVector2Array( 1352, -1089, 1393, -1088, 1396, -1062, 1351, -1061 ), PoolVector2Array( 1158, -834, 1200, -834, 1200, -805, 1159, -806 ), PoolVector2Array( 2021, -2213, 2064, -2213, 2063, -2183, 2021, -2183 ), PoolVector2Array( 2570, -1949, 2605, -1948, 2605, -1928, 2570, -1929 ), PoolVector2Array( 2306, -1508, 2354, -1507, 2353, -1477, 2308, -1479 ), PoolVector2Array( 2979, -1317, 3027, -1316, 3027, -1286, 2982, -1286 ), PoolVector2Array( 3396, -1408, 3445, -1408, 3444, -1378, 3396, -1379 ), PoolVector2Array( 3458, -1090, 3507, -1093, 3506, -1057, 3461, -1058 ), PoolVector2Array( 3167, -802, 3220, -802, 3222, -769, 3167, -767 ), PoolVector2Array( 2306, -66, 2356, -64, 2356, -30, 2309, -33 ), PoolVector2Array( 1923, 350, 1973, 351, 1973, 384, 1925, 382 ), PoolVector2Array( 3045, -1087, 3088, -1087, 3089, -1062, 3045, -1062 ), PoolVector2Array( 647, -415, 688, -414, 687, -393, 645, -393 ), PoolVector2Array( 198, -128, 238, -127, 238, -103, 199, -103 ), PoolVector2Array( 201, 324, 241, 326, 239, 345, 201, 345 ), PoolVector2Array( 1223, -188, 1264, -187, 1264, -166, 1224, -168 ), PoolVector2Array( 907, 100, 939, 101, 940, 119, 906, 119 ), PoolVector2Array( 2174, -1058, 2373, -1059, 2373, -887, 2169, -888 ), PoolVector2Array( 1240, 1, 1444, -1, 1446, 521, 1240, 520 ) ]
 
+[sub_resource type="Animation" id=107]
+resource_name = "ShowInstructions"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Instructions1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 3.8, 4.8, 7.8, 8.8 ),
+"transitions": PoolRealArray( 0.1, 1, 0.1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/Instructions2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 8.8, 9.8, 12.8, 13.8 ),
+"transitions": PoolRealArray( 0.1, 0.1, 0.1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/Instructions3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 13.8, 14.8, 17.8, 18.8 ),
+"transitions": PoolRealArray( 0.1, 1, 0.1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/Instructions4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 18.8, 19.8, 22.8, 23.8 ),
+"transitions": PoolRealArray( 0.1, 1, 0.1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MarginContainer/ColorRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.8, 3.5, 23.8, 24.8 ),
+"transitions": PoolRealArray( 0.1, 1, 0.1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="Level" type="Node2D"]
 script = ExtResource( 21 )
 
@@ -1483,6 +1547,61 @@ text = "Press R to restart or Esc to return to main menu"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="Instructions" type="CanvasLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Instructions"]
+autoplay = "ShowInstructions"
+anims/ShowInstructions = SubResource( 107 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Instructions"]
+anchor_right = 1.0
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Instructions/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 768.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.196078 )
+
+[node name="Instructions1" type="Label" parent="Instructions/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 768.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 16 )
+text = "Tab: Cycle weapon
+1: Switch to sword
+2: Switch to bow"
+align = 1
+
+[node name="Instructions2" type="Label" parent="Instructions/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 31.0
+margin_right = 768.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 16 )
+text = "Space: Roll"
+align = 1
+
+[node name="Instructions3" type="Label" parent="Instructions/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 31.0
+margin_right = 768.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 16 )
+text = "Enemies buff each-other on death"
+align = 1
+
+[node name="Instructions4" type="Label" parent="Instructions/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 31.0
+margin_right = 768.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 16 )
+text = "Survive!"
+align = 1
 
 [connection signal="player_died" from="YSort/Player" to="DeathMessage" method="_on_Player_player_died"]
 [connection signal="game_won" from="SpawnManager" to="VictoryMessage" method="_on_SpawnManager_game_won"]
