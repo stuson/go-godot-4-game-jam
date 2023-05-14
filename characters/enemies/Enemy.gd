@@ -25,6 +25,7 @@ onready var sprite_material: ShaderMaterial = animated_sprite.material
 onready var hit_sfx_player: AudioStreamPlayer2D = $HitSfxPlayer
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var hitbox: Area2D = $Area2D
+onready var enemy_type: PackedScene = load(filename)
 
 export(PackedScene) var death_explosion
 
@@ -120,7 +121,7 @@ func death_explosion_effect(body) -> void:
     pass #Implement per enemy
 
 func clone() -> Enemy:
-    var dupe = load(filename).instance()
+    var dupe = enemy_type.instance()
     dupe.scale = scale
     var dupe_stats = dupe.get_node("Stats")
     dupe_stats.update(stats)
