@@ -1109,6 +1109,7 @@ wave_name = "Niter Incident"
 
 [node name="Group1" type="Node" parent="SpawnManager/Waves/NiterIncident"]
 script = ExtResource( 9 )
+spawn_duration = 5.0
 
 [node name="Basic" type="Node" parent="SpawnManager/Waves/NiterIncident/Group1"]
 script = ExtResource( 10 )
