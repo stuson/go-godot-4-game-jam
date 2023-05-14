@@ -368,6 +368,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 split_offset = 80
+dragger_visibility = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/BasicEnemy"]
 margin_top = 56.0
@@ -411,6 +412,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 split_offset = 80
+dragger_visibility = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/TankEnemy"]
 margin_top = 56.0
@@ -422,7 +424,7 @@ size_flags_vertical = 4
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/TankEnemy/MarginContainer"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 47 )
-frame = 5
+frame = 19
 playing = true
 centered = false
 offset = Vector2( 0, -16 )
@@ -454,6 +456,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 split_offset = 80
+dragger_visibility = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/AttackerEnemy"]
 margin_top = 56.0
