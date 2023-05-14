@@ -91,6 +91,7 @@ shader = SubResource( 4 )
 shader_param/color = Plane( 1, 1, 1, 1 )
 
 [sub_resource type="AtlasTexture" id=8]
+resource_local_to_scene = true
 atlas = ExtResource( 3 )
 region = Rect2( 0, 64, 32, 32 )
 

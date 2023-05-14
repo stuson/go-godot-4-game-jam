@@ -5,6 +5,7 @@ onready var spawn_timer = $SpawnTimer
 onready var wave_delay_timer = $WaveDelayTimer
 onready var camera: Camera2D = get_tree().get_nodes_in_group("MainCamera")[0]
 onready var nav_poly: NavigationPolygonInstance = get_tree().get_nodes_in_group("NavMap")[0]
+onready var y_sort = get_tree().current_scene.get_node("YSort")
 
 var current_wave_idx = -1
 var current_wave: Wave
@@ -63,7 +64,7 @@ func _process(delta: float) -> void:
                 var stats = enemy.get_node("Stats")
                 stats.connect("die", self, "_on_Enemy_die")
                 enemy.connect("duplicated", self, "_on_Enemy_duplicated")
-                get_tree().current_scene.add_child(enemy)
+                y_sort.add_child(enemy)
                 enemy.global_translate(get_spawn_pos(enemy))
                 enemies_spawned += 1
         if enemies_in_group_to_spawn <= 0 and spawn_timer.is_stopped():
