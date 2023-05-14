@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/hud/HUD.gd" type="Script" id=2]
-[ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/#2 - Transparent Icons & Drop Shadow.png" type="Texture" id=4]
 [ext_resource path="res://assets/sound/clicky button 4.wav" type="AudioStream" id=5]
 
@@ -28,32 +27,14 @@ custom_fonts/font = ExtResource( 1 )
 text = "HP: 100/100"
 valign = 2
 
-[node name="WaveInfoContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -102.5
-margin_top = -100.0
-margin_right = 102.5
-margin_bottom = -15.0
-alignment = 2
-
-[node name="WaveLabel" type="Label" parent="WaveInfoContainer"]
-margin_top = 3.0
-margin_right = 205.0
-margin_bottom = 53.0
-custom_fonts/font = ExtResource( 3 )
-text = "Wave 1"
-align = 1
-valign = 2
-
-[node name="EnemiesRemainingLabel" type="Label" parent="WaveInfoContainer"]
-margin_top = 57.0
-margin_right = 205.0
-margin_bottom = 85.0
+[node name="WaveLabel" type="Label" parent="."]
+margin_left = 278.0
+margin_top = 15.0
+margin_right = 490.0
+margin_bottom = 47.0
+grow_horizontal = 2
 custom_fonts/font = ExtResource( 1 )
-text = "More..."
+text = "Wave 1 - Niter Incident"
 align = 1
 
 [node name="Weapons" type="HBoxContainer" parent="."]
@@ -61,12 +42,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -68.0
-margin_top = -40.0
+margin_left = -83.0
+margin_top = -47.0
+margin_right = -15.0
+margin_bottom = -15.0
 
 [node name="Sword" type="TextureRect" parent="Weapons"]
 margin_right = 32.0
-margin_bottom = 40.0
+margin_bottom = 32.0
 texture = SubResource( 1 )
 stretch_mode = 4
 
@@ -79,7 +62,7 @@ color = Color( 1, 1, 1, 0.647059 )
 [node name="Bow" type="TextureRect" parent="Weapons"]
 margin_left = 36.0
 margin_right = 68.0
-margin_bottom = 40.0
+margin_bottom = 32.0
 texture = SubResource( 2 )
 stretch_mode = 4
 
@@ -89,6 +72,20 @@ show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0.647059 )
+
+[node name="EnemiesRemainingLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -188.5
+margin_top = -47.0
+margin_right = 188.5
+margin_bottom = -15.0
+custom_fonts/font = ExtResource( 1 )
+text = "Enemies Remaining:"
+align = 1
+valign = 2
 
 [node name="SwitchWeaponSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

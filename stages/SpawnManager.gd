@@ -48,7 +48,7 @@ func spawn_next_wave():
         current_group_idx = -1
         get_next_spawn_group()
         
-        emit_signal("new_wave_spawned", current_wave_idx, enemies_in_wave)
+        emit_signal("new_wave_spawned", current_wave_idx, current_wave.wave_name, enemies_in_wave)
     else:
         emit_signal("game_won")
 

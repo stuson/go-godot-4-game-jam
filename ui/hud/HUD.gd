@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 onready var hp_label = $HpLabel
-onready var wave_label = $WaveInfoContainer/WaveLabel
-onready var enemies_remaining_label = $WaveInfoContainer/EnemiesRemainingLabel
+onready var wave_label = $WaveLabel
+onready var enemies_remaining_label = $EnemiesRemainingLabel
 onready var player: Node2D = get_tree().get_nodes_in_group("Player")[0]
 onready var spawn_manager: Node = get_tree().get_nodes_in_group("SpawnManager")[0]
 onready var weapon_icons = $Weapons.get_children()
@@ -17,8 +17,8 @@ func _ready() -> void:
 func _on_Player_Stats_hp_changed(hp, max_hp) -> void:
     hp_label.text = "HP: %s/%s" % [hp, max_hp]
 
-func _on_SpawnManager_new_wave_spawned(wave_idx, num_enemies) -> void:
-    wave_label.text = "Wave %s" % (wave_idx + 1)
+func _on_SpawnManager_new_wave_spawned(wave_idx, wave_name, num_enemies) -> void:
+    wave_label.text = "Wave %s - %s" % [wave_idx + 1, wave_name]
     enemies_remaining_label.text = "Enemies Remaining: %s" % num_enemies
 
 func _on_SpawnManager_enemies_to_kill_updated(enemies_to_kill) -> void:

@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://upgrades/UpgradesMenu.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -46,20 +45,13 @@ tracks/2/keys = {
 
 [node name="UpgradesMenu" type="CanvasLayer"]
 pause_mode = 2
+visible = false
+offset = Vector2( 0, 1000 )
+transform = Transform2D( 1, 0, 0, 1, 0, 1000 )
 script = ExtResource( 2 )
 
-[node name="UpgradeTitle" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -62.5
-margin_top = 15.0
-margin_right = 62.5
-margin_bottom = 50.0
-custom_fonts/font = ExtResource( 1 )
-text = "More..."
-align = 1
-
 [node name="UpgradesContainer" type="HBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
