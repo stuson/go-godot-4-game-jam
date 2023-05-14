@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://stages/SpawnManager.gd" type="Script" id=1]
 [ext_resource path="res://stages/Wave.gd" type="Script" id=2]
@@ -17,7 +17,9 @@
 [ext_resource path="res://ui/hud/PauseMenu.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=16]
 [ext_resource path="res://stages/VictoryMessage.gd" type="Script" id=17]
-[ext_resource path="res://characters/enemies/duplicator_enemy/DuplicatorEnemy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://characters/enemies/swift_enemy/SwiftEnemy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://characters/enemies/attacker_enemy/AttackerEnemy.tscn" type="PackedScene" id=19]
+[ext_resource path="res://characters/enemies/duplicator_enemy/DuplicatorEnemy.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -942,49 +944,345 @@ script = ExtResource( 1 )
 
 [node name="Waves" type="Node" parent="SpawnManager"]
 
-[node name="Wave1" type="Node" parent="SpawnManager/Waves"]
+[node name="Basic" type="Node" parent="SpawnManager/Waves"]
 script = ExtResource( 2 )
 
-[node name="Group1" type="Node" parent="SpawnManager/Waves/Wave1"]
+[node name="Group1" type="Node" parent="SpawnManager/Waves/Basic"]
 script = ExtResource( 9 )
 
-[node name="Spawn1" type="Node" parent="SpawnManager/Waves/Wave1/Group1"]
+[node name="Basic" type="Node" parent="SpawnManager/Waves/Basic/Group1"]
 script = ExtResource( 10 )
 Enemy = ExtResource( 3 )
-num_enemies = 3
+num_enemies = 10
+spawn_interval = 0.5
+
+[node name="SwiftIntro" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/SwiftIntro"]
+script = ExtResource( 9 )
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/SwiftIntro/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 10
 spawn_interval = 0.2
 
-[node name="Spawn2" type="Node" parent="SpawnManager/Waves/Wave1/Group1"]
+[node name="Swift" type="Node" parent="SpawnManager/Waves/SwiftIntro/Group1"]
 script = ExtResource( 10 )
 Enemy = ExtResource( 18 )
-num_enemies = 3
-spawn_interval = 1.0
+num_enemies = 2
+spawn_interval = 2.0
 
-[node name="Wave2" type="Node" parent="SpawnManager/Waves"]
+[node name="TankIntro" type="Node" parent="SpawnManager/Waves"]
 script = ExtResource( 2 )
 
-[node name="Group1" type="Node" parent="SpawnManager/Waves/Wave2"]
+[node name="Group1" type="Node" parent="SpawnManager/Waves/TankIntro"]
 script = ExtResource( 9 )
-spawn_duration = 8.0
 
-[node name="Spawn1" type="Node" parent="SpawnManager/Waves/Wave2/Group1"]
+[node name="Swift" type="Node" parent="SpawnManager/Waves/TankIntro/Group1"]
 script = ExtResource( 10 )
-Enemy = ExtResource( 3 )
-num_enemies = 3
+Enemy = ExtResource( 18 )
+num_enemies = 6
+spawn_interval = 1.0
 
-[node name="Spawn2" type="Node" parent="SpawnManager/Waves/Wave2/Group1"]
+[node name="Tank" type="Node" parent="SpawnManager/Waves/TankIntro/Group1"]
 script = ExtResource( 10 )
 Enemy = ExtResource( 8 )
 num_enemies = 2
-spawn_interval = 0.5
 
-[node name="Group2" type="Node" parent="SpawnManager/Waves/Wave2"]
+[node name="Group2" type="Node" parent="SpawnManager/Waves/TankIntro"]
 script = ExtResource( 9 )
 
-[node name="Spawn1" type="Node" parent="SpawnManager/Waves/Wave2/Group2"]
+[node name="Basic" type="Node" parent="SpawnManager/Waves/TankIntro/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 10
+
+[node name="TanksAgain" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/TanksAgain"]
+script = ExtResource( 9 )
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/TanksAgain/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 12
+spawn_interval = 0.5
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/TanksAgain/Group1"]
 script = ExtResource( 10 )
 Enemy = ExtResource( 8 )
+num_enemies = 5
+spawn_interval = 0.3
+
+[node name="AttackerIntro" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/AttackerIntro"]
+script = ExtResource( 9 )
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/AttackerIntro/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 5
+spawn_interval = 0.5
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/AttackerIntro/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 8 )
+num_enemies = 4
+spawn_interval = 0.2
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/AttackerIntro"]
+script = ExtResource( 9 )
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/AttackerIntro/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 5
+spawn_interval = 0.3
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/AttackerIntro/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 8 )
+num_enemies = 4
+spawn_interval = 0.2
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/AttackerIntro/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 5
+spawn_interval = 0.5
+
+[node name="FastAttackers" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/FastAttackers"]
+script = ExtResource( 9 )
+spawn_duration = 4.0
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/FastAttackers/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 15
+spawn_interval = 0.3
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/FastAttackers/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 8
+spawn_interval = 0.5
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/FastAttackers"]
+script = ExtResource( 9 )
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/FastAttackers/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 8
+spawn_interval = 0.5
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/FastAttackers/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 15
+spawn_interval = 0.3
+
+[node name="BasicTanks" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/BasicTanks"]
+script = ExtResource( 9 )
+spawn_duration = 5.0
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/BasicTanks/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 20
+spawn_interval = 0.5
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/BasicTanks/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 8 )
+num_enemies = 8
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/BasicTanks"]
+script = ExtResource( 9 )
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/BasicTanks/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 8
+spawn_interval = 0.6
+
+[node name="AllAtOnce" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/AllAtOnce"]
+script = ExtResource( 9 )
+spawn_duration = 4.0
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/AllAtOnce/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 20
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/AllAtOnce"]
+script = ExtResource( 9 )
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/AllAtOnce/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 8
+spawn_interval = 0.3
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/AllAtOnce/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 8 )
+num_enemies = 8
+spawn_interval = 0.2
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/AllAtOnce/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 8
+spawn_interval = 0.5
+
+[node name="DupeIntro" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/DupeIntro"]
+script = ExtResource( 9 )
+spawn_duration = 1.0
+
+[node name="Duplicator" type="Node" parent="SpawnManager/Waves/DupeIntro/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 20 )
+num_enemies = 4
+spawn_interval = 1.0
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/DupeIntro/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 8
+spawn_interval = 0.3
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/DupeIntro"]
+script = ExtResource( 9 )
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/DupeIntro/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 8
+
+[node name="TankyDupes" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/TankyDupes"]
+script = ExtResource( 9 )
+
+[node name="Duplicator" type="Node" parent="SpawnManager/Waves/TankyDupes/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 20 )
+num_enemies = 2
+spawn_interval = 0.2
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/TankyDupes/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 8 )
+num_enemies = 8
+spawn_interval = 0.5
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/TankyDupes"]
+script = ExtResource( 9 )
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/TankyDupes/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 15
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/TankyDupes/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 8
+spawn_interval = 0.3
+
+[node name="TheHorde" type="Node" parent="SpawnManager/Waves"]
+script = ExtResource( 2 )
+
+[node name="Group1" type="Node" parent="SpawnManager/Waves/TheHorde"]
+script = ExtResource( 9 )
+spawn_duration = 5.0
+
+[node name="Duplicator" type="Node" parent="SpawnManager/Waves/TheHorde/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 20 )
+num_enemies = 3
+spawn_interval = 1.0
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/TheHorde/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 8 )
+num_enemies = 8
+spawn_interval = 2.0
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/TheHorde/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 15
+spawn_interval = 0.3
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/TheHorde/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 8
+spawn_interval = 0.5
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/TheHorde/Group1"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 8
+spawn_interval = 1.0
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/TheHorde"]
+script = ExtResource( 9 )
+spawn_duration = 1.0
+
+[node name="Duplicator" type="Node" parent="SpawnManager/Waves/TheHorde/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 20 )
+num_enemies = 6
+spawn_interval = 0.8
+
+[node name="Tank" type="Node" parent="SpawnManager/Waves/TheHorde/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 8 )
+num_enemies = 4
+spawn_interval = 1.0
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/TheHorde/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
 num_enemies = 10
+spawn_interval = 0.3
+
+[node name="Attacker" type="Node" parent="SpawnManager/Waves/TheHorde/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 19 )
+num_enemies = 15
+spawn_interval = 0.5
+
+[node name="Group3" type="Node" parent="SpawnManager/Waves/TheHorde"]
+script = ExtResource( 9 )
+spawn_duration = 1.0
+
+[node name="Swift" type="Node" parent="SpawnManager/Waves/TheHorde/Group3"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 18 )
+num_enemies = 30
+spawn_interval = 0.0
 
 [node name="SpawnTimer" type="Timer" parent="SpawnManager"]
 
