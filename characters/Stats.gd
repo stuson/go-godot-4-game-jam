@@ -66,7 +66,8 @@ func set_current_hp(new_current_hp, is_crit=false):
 func set_attack_speed(new_attack_speed):
     attack_speed_multiplier = new_attack_speed
     if parent:
-        parent.equipped_weapon.update_rof()
+        for weapon in parent.weapons:
+            weapon.update_rof()
 
 func update(other_stats: Stats) -> void:
     max_hp = other_stats.max_hp

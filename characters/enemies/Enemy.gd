@@ -48,6 +48,10 @@ func _physics_process(delta: float) -> void:
         velocity += get_knockback_velocity()
         nav_agent.set_velocity(velocity)
     
+    var closest_pos = Navigation2DServer.map_get_closest_point(nav_agent.get_navigation_map(), global_position)
+    if closest_pos != global_position:
+        global_position = closest_pos
+    
     if animated_sprite.animation != "walk" and velocity.length() > 0:
         animated_sprite.animation = "walk"
     
