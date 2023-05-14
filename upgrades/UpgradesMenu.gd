@@ -37,6 +37,7 @@ func _on_SpawnManager_wave_cleared() -> void:
                     upgradePanel.desc_tag.set("custom_colors/font_outline_modulate", Color.white)
 
     visible = true
+    $ColorRect.visible = true
     animation_player.play("UpgradesTransition")
 
 func _on_Upgrade_selected() -> void:
