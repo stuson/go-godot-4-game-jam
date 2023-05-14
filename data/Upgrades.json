@@ -84,7 +84,7 @@
     },
     {
       "title": "Butter of Tin",
-      "description": "Max HP +30\\nMove Speed -30",
+      "description": "Max HP +30\nMove Speed -30",
       "upgrades": [
         {
           "property": "max_hp",
@@ -211,7 +211,7 @@
     },
     {
       "title": "Tinsalt",
-      "description": "Max HP +30\\nMove Speed -15",
+      "description": "Max HP +30\nMove Speed -15",
       "upgrades": [
         {
           "property": "max_hp",
@@ -264,7 +264,7 @@
       ]
     },
     {
-      "title": "Peal White",
+      "title": "Pearl White",
       "description": "Crit Damage Multiplier +45%",
       "upgrades": [
         {
@@ -278,7 +278,7 @@
   "Rare": [
     {
       "title": "Aqua Vitae",
-      "description": "Max HP +40\\nFull Heal",
+      "description": "Max HP +40\nFull Heal",
       "upgrades": [
         {
           "property": "max_hp",
@@ -349,7 +349,7 @@
     },
     {
       "title": "Spiritus Fumans",
-      "description": "Max HP +30\\nMove Speed +20",
+      "description": "Max HP +30\nMove Speed +20",
       "upgrades": [
         {
           "property": "max_hp",
