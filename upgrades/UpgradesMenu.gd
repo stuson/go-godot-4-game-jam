@@ -32,6 +32,8 @@ func _on_SpawnManager_wave_cleared() -> void:
                 "Rare": 
                     upgradePanel.name_tag.set("custom_colors/font_color", Color.blue)
                     upgradePanel.desc_tag.set("custom_colors/font_color", Color.blue)
+                    upgradePanel.name_tag.set("custom_colors/font_outline_modulate", Color.white)
+                    upgradePanel.desc_tag.set("custom_colors/font_outline_modulate", Color.white)
 
     visible = true
 
