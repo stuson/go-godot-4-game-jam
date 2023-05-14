@@ -58,7 +58,8 @@ func _process(delta: float) -> void:
             var spawn_count = spawn.get_spawn_count(delta)
             enemies_in_group_to_spawn += spawn.remaining_enemies
             for _idx in range(0, spawn_count):
-                var enemy: Node2D = spawn.Enemy.instance()
+                var enemy: Enemy = spawn.Enemy.instance()
+                enemy.max_hp *= 1 + 0.2 * floor(current_wave_idx / 5)
                 var stats = enemy.get_node("Stats")
                 stats.connect("die", self, "_on_Enemy_die")
                 enemy.connect("duplicated", self, "_on_Enemy_duplicated")
