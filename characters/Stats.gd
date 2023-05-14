@@ -7,7 +7,7 @@ export var crit_chance = 0.05
 export var crit_multiplier = 1.5
 export var move_speed = 200
 export var attack_speed_multiplier = 1 setget set_attack_speed
-export var life_on_kill = 0
+export var potion_chance = 0.01
 export var knockback_multiplier = 1
 export var attack_size_multiplier = 1
 export var chain = 0
@@ -76,7 +76,7 @@ func update(other_stats: Stats) -> void:
     crit_multiplier = other_stats.crit_multiplier
     move_speed = other_stats.move_speed
     attack_speed_multiplier = other_stats. attack_speed_multiplier
-    life_on_kill = other_stats.life_on_kill
+    potion_chance = other_stats.potion_chance
     knockback_multiplier = other_stats.knockback_multiplier
     attack_size_multiplier = other_stats.attack_size_multiplier
 

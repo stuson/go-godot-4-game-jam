@@ -2,54 +2,43 @@
   "Common": [
     {
       "title": "Philter of Gold",
-      "description": "Crit Chance +10%",
+      "description": "Crit Chance +5%",
       "upgrades": [
         {
           "property": "crit_chance",
-          "modifier": 0.1,
+          "modifier": 0.05,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Bismuth Solution",
-      "description": "Crit Damage Multiplier +0.5",
+      "description": "Crit Damage Multiplier +30%",
       "upgrades": [
         {
           "property": "crit_multiplier",
-          "modifier": 0.5,
+          "modifier": 0.3,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Iron Flask",
-      "description": "Damage Multiplier +0.15",
+      "description": "Damage Multiplier +10%",
       "upgrades": [
         {
           "property": "damage_multiplier",
-          "modifier": 0.15,
+          "modifier": 0.1,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Antimony Drops",
-      "description": "Attack Speed +0.5",
+      "description": "Attack Speed +10%",
       "upgrades": [
         {
           "property": "attack_speed_multiplier",
-          "modifier": 0.5,
-          "operand": "+"
-        }
-      ]
-    },
-    {
-      "title": "Lead Draught",
-      "description": "Knockback Multiplier +0.1",
-      "upgrades": [
-        {
-          "property": "knockback_multiplier",
           "modifier": 0.1,
           "operand": "+"
         }
@@ -57,7 +46,7 @@
     },
     {
       "title": "Aqua Fortis",
-      "description": "Max HP + 10\nFull Heal",
+      "description": "Max HP + 10",
       "upgrades": [
         {
           "property": "max_hp",
@@ -66,36 +55,25 @@
         },
         {
           "property": "current_hp",
-          "modifier": 10000,
+          "modifier": 10,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Quicksilver Vial",
-      "description": "Move Speed +50",
+      "description": "Move Speed +20",
       "upgrades": [
         {
           "property": "move_speed",
-          "modifier": 50,
-          "operand": "+"
-        }
-      ]
-    },
-    {
-      "title": "Silver Solvent",
-      "description": "Lifesteal",
-      "upgrades": [
-        {
-          "property": "life_on_kill",
-          "modifier": 1,
+          "modifier": 20,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Copper Potion",
-      "description": "Attack Size + 10%",
+      "description": "Attack Size +10%",
       "upgrades": [
         {
           "property": "attack_size_multiplier",
@@ -106,7 +84,7 @@
     },
     {
       "title": "Butter of Tin",
-      "description": "Max HP + 50\nFull Heal\nMove Speed -75",
+      "description": "Max HP +30\\nMove Speed -30",
       "upgrades": [
         {
           "property": "max_hp",
@@ -115,13 +93,46 @@
         },
         {
           "property": "current_hp",
-          "modifier": 10000,
+          "modifier": 50,
           "operand": "+"
         },
         {
           "property": "move_speed",
-          "modifier": 75,
+          "modifier": 30,
           "operand": "-"
+        }
+      ]
+    },
+    {
+      "title": "Orpiment",
+      "description": "Arrow bounces +1",
+      "upgrades": [
+        {
+          "property": "chain",
+          "modifier": 1,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Chalk",
+      "description": "Slash Distance +50",
+      "upgrades": [
+        {
+          "property": "swing_travel",
+          "modifier": 50,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Silver Solvent",
+      "description": "Potion Chance +1%",
+      "upgrades": [
+        {
+          "property": "potion_chance",
+          "modifier": 0.01,
+          "operand": "+"
         }
       ]
     }
@@ -129,7 +140,7 @@
   "Uncommon": [
     {
       "title": "Aqua Regia",
-      "description": "Max HP +20\nFull Heal",
+      "description": "Max HP +20",
       "upgrades": [
         {
           "property": "max_hp",
@@ -138,73 +149,51 @@
         },
         {
           "property": "current_hp",
-          "modifier": 10000,
+          "modifier": 20,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Antimony Glass",
-      "description": "Attack Speed +1.1",
+      "description": "Attack Speed +15%",
       "upgrades": [
         {
           "property": "attack_speed_multiplier",
-          "modifier": 1.1,
-          "operand": "+"
-        }
-      ]
-    },
-    {
-      "title": "White Lead",
-      "description": "Knockback Multiplier +0.3",
-      "upgrades": [
-        {
-          "property": "knockback_multiplier",
-          "modifier": 0.3,
+          "modifier": 0.2,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Fulminating Gold",
-      "description": "Crit Chance +25%",
+      "description": "Crit Chance +7.5%",
       "upgrades": [
         {
           "property": "crit_chance",
-          "modifier": 0.25,
+          "modifier": 0.075,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Carburised Iron",
-      "description": "Damage Mutliplier +0.33",
+      "description": "Damage Mutliplier +15%",
       "upgrades": [
         {
           "property": "damage_multiplier",
-          "modifier": 0.33,
+          "modifier": 0.15,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Sophic Mercury",
-      "description": "Move Speed +100",
+      "description": "Move Speed +40",
       "upgrades": [
         {
           "property": "move_speed",
-          "modifier": 100,
-          "operand": "+"
-        }
-      ]
-    },
-    {
-      "title": "Argyropode",
-      "description": "Improved Lifesteal",
-      "upgrades": [
-        {
-          "property": "life_on_kill",
-          "modifier": 2,
+          "modifier": 40,
           "operand": "+"
         }
       ]
@@ -222,22 +211,66 @@
     },
     {
       "title": "Tinsalt",
-      "description": "Max HP +50\nFull Heal\nMove Speed -40",
+      "description": "Max HP +30\\nMove Speed -15",
       "upgrades": [
         {
           "property": "max_hp",
-          "modifier": 50,
+          "modifier": 30,
           "operand": "+"
         },
         {
           "property": "current_hp",
-          "modifier": 10000,
+          "modifier": 30,
           "operand": "+"
         },
         {
           "property": "move_speed",
-          "modifier": 40,
+          "modifier": 15,
           "operand": "-"
+        }
+      ]
+    },
+    {
+      "title": "Realgar",
+      "description": "Arrow bounces +2",
+      "upgrades": [
+        {
+          "property": "chain",
+          "modifier": 2,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Calx",
+      "description": "Slash Distance +100",
+      "upgrades": [
+        {
+          "property": "swing_travel",
+          "modifier": 100,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Argyropode",
+      "description": "Potion Chance +2%",
+      "upgrades": [
+        {
+          "property": "potion_chance",
+          "modifier": 0.02,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Peal White",
+      "description": "Crit Damage Multiplier +45%",
+      "upgrades": [
+        {
+          "property": "crit_multiplier",
+          "modifier": 0.45,
+          "operand": "+"
         }
       ]
     }
@@ -245,11 +278,11 @@
   "Rare": [
     {
       "title": "Aqua Vitae",
-      "description": "Max HP +70\nFull Heal",
+      "description": "Max HP +40\\nFull Heal",
       "upgrades": [
         {
           "property": "max_hp",
-          "modifier": 70,
+          "modifier": 40,
           "operand": "+"
         },
         {
@@ -261,7 +294,7 @@
     },
     {
       "title": "Powder of Algaroth",
-      "description": "Attack Speed +2.5",
+      "description": "Attack Speed +20%",
       "upgrades": [
         {
           "property": "attack_speed_multiplier",
@@ -271,56 +304,34 @@
       ]
     },
     {
-      "title": "Galena",
-      "description": "Knockback Multiplier +0.7",
-      "upgrades": [
-        {
-          "property": "knockback_multiplier",
-          "modifier": 0.7,
-          "operand": "+"
-        }
-      ]
-    },
-    {
       "title": "Mosaic Gold",
-      "description": "Crit Chance +50%",
+      "description": "Crit Chance +10%",
       "upgrades": [
         {
           "property": "crit_chance",
-          "modifier": 0.5,
+          "modifier": 0.1,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Marcasite",
-      "description": "Damage Multiplier +0.66",
+      "description": "Damage Multiplier +20%",
       "upgrades": [
         {
           "property": "damage_multiplier",
-          "modifier": 0.66,
+          "modifier": 0.2,
           "operand": "+"
         }
       ]
     },
     {
       "title": "Mellago",
-      "description": "Move Speed +175",
+      "description": "Move Speed +60",
       "upgrades": [
         {
           "property": "move_speed",
-          "modifier": 175,
-          "operand": "+"
-        }
-      ]
-    },
-    {
-      "title": "Lunafaction Alembic",
-      "description": "Greatly Improved Lifesteal",
-      "upgrades": [
-        {
-          "property": "life_on_kill",
-          "modifier": 3,
+          "modifier": 60,
           "operand": "+"
         }
       ]
@@ -338,21 +349,65 @@
     },
     {
       "title": "Spiritus Fumans",
-      "description": "Max HP + 50\nFull Heal\nMove Speed +20",
+      "description": "Max HP +30\\nMove Speed +20",
       "upgrades": [
         {
           "property": "max_hp",
-          "modifier": 50,
+          "modifier": 30,
           "operand": "+"
         },
         {
           "property": "current_hp",
-          "modifier": 10000,
+          "modifier": 30,
           "operand": "+"
         },
         {
           "property": "move_speed",
           "modifier": 20,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "King's Yellow",
+      "description": "Arrow bounces +3",
+      "upgrades": [
+        {
+          "property": "chain",
+          "modifier": 3,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Gypsum",
+      "description": "Slash Distance +150",
+      "upgrades": [
+        {
+          "property": "swing_travel",
+          "modifier": 150,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Lunafaction Alembic",
+      "description": "Potion Chance +3%",
+      "upgrades": [
+        {
+          "property": "potion_chance",
+          "modifier": 0.03,
+          "operand": "+"
+        }
+      ]
+    },
+    {
+      "title": "Glaure Augurelli",
+      "description": "Crit Damage Multiplier +60%",
+      "upgrades": [
+        {
+          "property": "crit_multiplier",
+          "modifier": 0.6,
           "operand": "+"
         }
       ]

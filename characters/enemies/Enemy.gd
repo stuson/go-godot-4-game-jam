@@ -15,6 +15,7 @@ var knockback_velocity = Vector2.ZERO
 var dying = false
 var duplicatable = true
 var basic = false
+var healing_potion: PackedScene = preload("res://items/healing_potion/HealingPotion.tscn")
 
 onready var player: KinematicBody2D = get_tree().get_nodes_in_group("Player")[0]
 onready var stats = $Stats
@@ -26,6 +27,7 @@ onready var hit_sfx_player: AudioStreamPlayer2D = $HitSfxPlayer
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var hitbox: Area2D = $Area2D
 onready var enemy_type: PackedScene = load(filename)
+onready var ysort = get_tree().current_scene.get_node("YSort")
 
 export(PackedScene) var death_explosion
 
@@ -91,17 +93,22 @@ func _on_Stats_die() -> void:
     animated_sprite.animation = "die"
     yield(animated_sprite, "animation_finished")
     animated_sprite.visible = false
-    player.get_node("Stats").current_hp += player.get_node("Stats").life_on_kill
+    
+    randomize()
+    if randf() < player.get_node("Stats").potion_chance:
+        var pot = healing_potion.instance()
+        ysort.call_deferred("add_child", pot)
+        pot.global_position = global_position
     
     if not basic:
         var explosion = death_explosion.instance()
         explosion.color = explode_color
         explosion.death_action = funcref(self, "explode")
-        explosion.global_position = global_position
         explosion.scale *= explode_scale * sqrt(scale.length())
         explosion.icon = buff_icon
 
-        get_tree().current_scene.call_deferred("add_child", explosion)
+        ysort.call_deferred("add_child", explosion)
+        explosion.global_position = global_position
     else:
         queue_free()
         
