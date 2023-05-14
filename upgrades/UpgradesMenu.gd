@@ -2,6 +2,7 @@ extends CanvasLayer
 
 onready var player = get_tree().get_nodes_in_group("Player")[0]
 onready var container = $UpgradesContainer
+onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var upgradePanelScene = preload("res://upgrades/Upgrade.tscn")
 
@@ -36,6 +37,7 @@ func _on_SpawnManager_wave_cleared() -> void:
                     upgradePanel.desc_tag.set("custom_colors/font_outline_modulate", Color.white)
 
     visible = true
+    animation_player.play("UpgradesTransition")
 
 func _on_Upgrade_selected() -> void:
     for node in container.get_children():
@@ -54,4 +56,6 @@ func upgrade_rarity():
         return "Uncommon"
     else:
         return "Common"
-    
+
+func allow_interact() -> void:
+    $ColorRect.visible = false
