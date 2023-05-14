@@ -11,12 +11,12 @@ signal upgrade_menu_finished
 
 func _on_SpawnManager_wave_cleared() -> void:
     get_tree().paused = true
-    var unused_upgrades = UpgradeList.upgrades.duplicate()
+    var unused_upgrades = UpgradeList.upgrades.duplicate(true)
     for _i in range(0, NUM_UPGRADES):
         if unused_upgrades:
             randomize()
             var rarity = upgrade_rarity()
-            var upgrade = unused_upgrades[rarity].pop_at(int(rand_range(0, unused_upgrades.size())))
+            var upgrade = unused_upgrades[rarity].pop_at(int(rand_range(0, unused_upgrades[rarity].size())))
             var upgradePanel = upgradePanelScene.instance()
             upgradePanel.upgrade_name = upgrade["title"]
             upgradePanel.upgrade_desc = upgrade["description"]
