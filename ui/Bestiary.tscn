@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/TankEnemy/idle.png" type="Texture" id=4]
 [ext_resource path="res://assets/AttackerEnemy/idle.png" type="Texture" id=5]
 [ext_resource path="res://ui/MainMenuButton.gd" type="Script" id=6]
+[ext_resource path="res://assets/SwiftEnemy/idle.png" type="Texture" id=7]
+[ext_resource path="res://assets/DuplicatorEnemy/idle.png" type="Texture" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -299,6 +301,202 @@ animations = [ {
 "speed": 12.0
 } ]
 
+[sub_resource type="AtlasTexture" id=71]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=73]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=75]
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 7 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 7 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 7 )
+region = Rect2( 128, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=80]
+atlas = ExtResource( 7 )
+region = Rect2( 144, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=81]
+atlas = ExtResource( 7 )
+region = Rect2( 160, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=82]
+atlas = ExtResource( 7 )
+region = Rect2( 176, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=83]
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=84]
+atlas = ExtResource( 7 )
+region = Rect2( 208, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=85]
+atlas = ExtResource( 7 )
+region = Rect2( 224, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=86]
+atlas = ExtResource( 7 )
+region = Rect2( 240, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=87]
+atlas = ExtResource( 7 )
+region = Rect2( 256, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=88]
+atlas = ExtResource( 7 )
+region = Rect2( 272, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 7 )
+region = Rect2( 288, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=90]
+atlas = ExtResource( 7 )
+region = Rect2( 304, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=91]
+atlas = ExtResource( 7 )
+region = Rect2( 320, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=92]
+atlas = ExtResource( 7 )
+region = Rect2( 336, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=93]
+animations = [ {
+"frames": [ SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=94]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=95]
+atlas = ExtResource( 8 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=96]
+atlas = ExtResource( 8 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=97]
+atlas = ExtResource( 8 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=98]
+atlas = ExtResource( 8 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=99]
+atlas = ExtResource( 8 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=100]
+atlas = ExtResource( 8 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 8 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 8 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 8 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=104]
+atlas = ExtResource( 8 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=105]
+atlas = ExtResource( 8 )
+region = Rect2( 352, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=106]
+atlas = ExtResource( 8 )
+region = Rect2( 384, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 8 )
+region = Rect2( 416, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 8 )
+region = Rect2( 448, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 8 )
+region = Rect2( 480, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=110]
+atlas = ExtResource( 8 )
+region = Rect2( 512, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=111]
+atlas = ExtResource( 8 )
+region = Rect2( 544, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 8 )
+region = Rect2( 576, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 8 )
+region = Rect2( 608, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=114]
+atlas = ExtResource( 8 )
+region = Rect2( 640, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=115]
+atlas = ExtResource( 8 )
+region = Rect2( 672, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=116]
+atlas = ExtResource( 8 )
+region = Rect2( 704, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=117]
+animations = [ {
+"frames": [ SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -306,7 +504,7 @@ animations = [ {
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.419608, 0.854902, 0.976471, 1 )
+color = Color( 0.027451, 0.760784, 0.364706, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
 anchor_right = 1.0
@@ -356,14 +554,22 @@ scroll_horizontal_enabled = false
 
 [node name="EnemyList" type="VBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer"]
 margin_right = 621.0
-margin_bottom = 347.0
+margin_bottom = 787.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="BasicEnemy" type="HSplitContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+[node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
 margin_right = 621.0
-margin_bottom = 113.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="BasicEnemy" type="HSplitContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 24.0
+margin_right = 621.0
+margin_bottom = 168.0
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -371,16 +577,16 @@ split_offset = 80
 dragger_visibility = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/BasicEnemy"]
-margin_top = 56.0
+margin_top = 72.0
 margin_right = 80.0
-margin_bottom = 56.0
+margin_bottom = 72.0
 grow_vertical = 2
 size_flags_vertical = 4
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/BasicEnemy/MarginContainer"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 23 )
-frame = 3
+frame = 11
 playing = true
 centered = false
 offset = Vector2( 8, -8 )
@@ -388,26 +594,35 @@ offset = Vector2( 8, -8 )
 [node name="BasicSlime" type="VBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/BasicEnemy"]
 margin_left = 92.0
 margin_right = 621.0
-margin_bottom = 113.0
+margin_bottom = 144.0
 
 [node name="Name" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/BasicEnemy/BasicSlime"]
 margin_right = 529.0
 margin_bottom = 50.0
 custom_fonts/font = ExtResource( 2 )
-text = "Basic Slime"
+text = "Niter Slime"
 
 [node name="Description" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/BasicEnemy/BasicSlime"]
 margin_top = 54.0
 margin_right = 529.0
-margin_bottom = 113.0
+margin_bottom = 144.0
 custom_fonts/font = ExtResource( 1 )
-text = "Low HP and damage. Has no personality.
-Death Effect: Speed up"
+text = "Low stats. Still trying to figure things out.
+Death Effect: No effect, but gains double effect from other death effects."
+autowrap = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 172.0
+margin_right = 621.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="TankEnemy" type="HSplitContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
-margin_top = 117.0
+margin_top = 196.0
 margin_right = 621.0
-margin_bottom = 230.0
+margin_bottom = 309.0
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -424,7 +639,7 @@ size_flags_vertical = 4
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/TankEnemy/MarginContainer"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 47 )
-frame = 19
+frame = 6
 playing = true
 centered = false
 offset = Vector2( 0, -16 )
@@ -438,20 +653,29 @@ margin_bottom = 113.0
 margin_right = 529.0
 margin_bottom = 50.0
 custom_fonts/font = ExtResource( 2 )
-text = "Tank Slime"
+text = "Bezoar Slime"
 
 [node name="Description" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/TankEnemy/BasicSlime"]
 margin_top = 54.0
 margin_right = 529.0
 margin_bottom = 113.0
 custom_fonts/font = ExtResource( 1 )
-text = "High HP. A colossus of slime society.
-Death Effect: HP up + heal"
+text = "High HP. Just showed up to listen to the music.
+Death Effect: HP up and heal."
+autowrap = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 313.0
+margin_right = 621.0
+margin_bottom = 333.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="AttackerEnemy" type="HSplitContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
-margin_top = 234.0
+margin_top = 337.0
 margin_right = 621.0
-margin_bottom = 347.0
+margin_bottom = 450.0
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -468,7 +692,7 @@ size_flags_vertical = 4
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/AttackerEnemy/MarginContainer"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 70 )
-frame = 11
+frame = 19
 playing = true
 centered = false
 offset = Vector2( 8, -8 )
@@ -482,15 +706,130 @@ margin_bottom = 113.0
 margin_right = 529.0
 margin_bottom = 50.0
 custom_fonts/font = ExtResource( 2 )
-text = "Attacker Slime"
+text = "Brimstone Slime"
 
 [node name="Description" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/AttackerEnemy/BasicSlime"]
 margin_top = 54.0
 margin_right = 529.0
 margin_bottom = 113.0
 custom_fonts/font = ExtResource( 1 )
-text = "High damage. Doesn't like criticism.
+text = "High Damage. Nursing a bitter one-sided rivalry.
 Death Effect: Damage up"
+autowrap = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 454.0
+margin_right = 621.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="SwiftEnemy" type="HSplitContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 478.0
+margin_right = 621.0
+margin_bottom = 622.0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+split_offset = 80
+dragger_visibility = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/SwiftEnemy"]
+margin_top = 72.0
+margin_right = 80.0
+margin_bottom = 72.0
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/SwiftEnemy/MarginContainer"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 93 )
+frame = 16
+playing = true
+centered = false
+offset = Vector2( 8, -8 )
+
+[node name="BasicSlime" type="VBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/SwiftEnemy"]
+margin_left = 92.0
+margin_right = 621.0
+margin_bottom = 144.0
+
+[node name="Name" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/SwiftEnemy/BasicSlime"]
+margin_right = 529.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 2 )
+text = "Ambergris Slime"
+
+[node name="Description" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/SwiftEnemy/BasicSlime"]
+margin_top = 54.0
+margin_right = 529.0
+margin_bottom = 144.0
+custom_fonts/font = ExtResource( 1 )
+text = "Low HP and high speed. Willing to give everything for the cause.
+Death Effect: Speed up"
+autowrap = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 626.0
+margin_right = 621.0
+margin_bottom = 646.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="DuplicatorEnemy" type="HSplitContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 650.0
+margin_right = 621.0
+margin_bottom = 763.0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+split_offset = 80
+dragger_visibility = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/DuplicatorEnemy"]
+margin_top = 56.0
+margin_right = 80.0
+margin_bottom = 56.0
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/DuplicatorEnemy/MarginContainer"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 117 )
+frame = 7
+playing = true
+centered = false
+offset = Vector2( 0, -16 )
+
+[node name="BasicSlime" type="VBoxContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/DuplicatorEnemy"]
+margin_left = 92.0
+margin_right = 621.0
+margin_bottom = 113.0
+
+[node name="Name" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/DuplicatorEnemy/BasicSlime"]
+margin_right = 529.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 2 )
+text = "Philosopher's Stone Slime"
+
+[node name="Description" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList/DuplicatorEnemy/BasicSlime"]
+margin_top = 54.0
+margin_right = 529.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 1 )
+text = "Mid-range stats. Thinking about other things.
+Death Effect: Duplicates enemies."
+autowrap = true
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/ScrollContainer/EnemyList"]
+margin_top = 767.0
+margin_right = 621.0
+margin_bottom = 787.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer"]
 margin_left = 704.0

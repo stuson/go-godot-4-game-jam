@@ -1,10 +1,111 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/HudFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/HudFont_Large.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/StartGame.gd" type="Script" id=3]
 [ext_resource path="res://ui/Bestiary.gd" type="Script" id=4]
 [ext_resource path="res://ui/Settings.gd" type="Script" id=5]
+[ext_resource path="res://assets/TankEnemy/idle.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 6 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 6 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 6 )
+region = Rect2( 352, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 6 )
+region = Rect2( 384, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 6 )
+region = Rect2( 416, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 6 )
+region = Rect2( 448, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 6 )
+region = Rect2( 480, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 6 )
+region = Rect2( 512, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 6 )
+region = Rect2( 544, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 6 )
+region = Rect2( 576, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 6 )
+region = Rect2( 608, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 6 )
+region = Rect2( 640, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 6 )
+region = Rect2( 672, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 6 )
+region = Rect2( 704, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -13,7 +114,7 @@
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.419608, 0.854902, 0.976471, 1 )
+color = Color( 0.027451, 0.760784, 0.364706, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
 anchor_right = 1.0
@@ -84,6 +185,85 @@ margin_left = 704.0
 margin_right = 768.0
 margin_bottom = 286.0
 size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Sprites" type="Node2D" parent="CanvasLayer/ColorRect/MarginContainer"]
+scale = Vector2( 8, 8 )
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 12, 0 )
+frames = SubResource( 24 )
+frame = 21
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 78, 0 )
+frames = SubResource( 24 )
+frame = 15
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 58, 0 )
+frames = SubResource( 24 )
+frame = 17
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 24.375, 0 )
+frames = SubResource( 24 )
+frame = 14
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+frames = SubResource( 24 )
+frame = 6
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 38.875, 0 )
+frames = SubResource( 24 )
+frame = 10
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 67, 0 )
+frames = SubResource( 24 )
+frame = 20
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 90.125, 0.125 )
+frames = SubResource( 24 )
+frame = 12
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="CanvasLayer/ColorRect/MarginContainer/Sprites"]
+position = Vector2( 50, 0 )
+frames = SubResource( 24 )
+frame = 3
+playing = true
+centered = false
+offset = Vector2( -16, -32 )
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/Options/StartGame" to="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/Options/StartGame" method="_on_StartGame_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/Options/Settings" to="CanvasLayer/ColorRect/VBoxContainer/HBoxContainer/Options/Settings" method="_on_Settings_pressed"]
