@@ -1114,7 +1114,16 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 Enemy = ExtResource( 3 )
 num_enemies = 10
-spawn_interval = 0.5
+spawn_interval = 1.0
+
+[node name="Group2" type="Node" parent="SpawnManager/Waves/NiterIncident"]
+script = ExtResource( 9 )
+
+[node name="Basic" type="Node" parent="SpawnManager/Waves/NiterIncident/Group2"]
+script = ExtResource( 10 )
+Enemy = ExtResource( 3 )
+num_enemies = 5
+spawn_interval = 0.3
 
 [node name="AmbergrisAssault" type="Node" parent="SpawnManager/Waves"]
 script = ExtResource( 2 )
@@ -1971,7 +1980,7 @@ margin_right = 768.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0, 0, 0, 0.196078 )
+color = Color( 0, 0, 0, 0.784314 )
 
 [node name="Instructions1" type="Label" parent="Instructions/MarginContainer"]
 modulate = Color( 1, 1, 1, 0 )
