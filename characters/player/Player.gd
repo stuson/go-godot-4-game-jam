@@ -50,8 +50,13 @@ func _physics_process(delta: float) -> void:
     if can_roll and not rolling and Input.is_action_just_pressed("roll"):
         start_roll()
         
+    # Switch weapons
     if Input.is_action_just_pressed("cycle_weapon"):
         cycle_weapon()
+    if Input.is_action_just_pressed("select_weapon_1"):
+        select_weapon(0)
+    if Input.is_action_just_pressed("select_weapon_2"):
+        select_weapon(1)
     
     if rolling:
         velocity = roll_velocity
@@ -78,7 +83,11 @@ func _physics_process(delta: float) -> void:
     move_and_slide(velocity)
 
 func cycle_weapon() -> void:
-    weapon_idx = (weapon_idx + 1) % weapons.size()
+    var idx = (weapon_idx + 1) % weapons.size()
+    select_weapon(idx)
+    
+func select_weapon(idx) -> void:
+    weapon_idx = idx
     equipped_weapon = weapons[weapon_idx]
     emit_signal("weapon_cycled", weapon_idx)
 
