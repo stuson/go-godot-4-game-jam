@@ -298,7 +298,7 @@
       "upgrades": [
         {
           "property": "attack_speed_multiplier",
-          "modifier": 2.5,
+          "modifier": 0.2,
           "operand": "+"
         }
       ]
